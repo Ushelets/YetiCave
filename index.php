@@ -14,6 +14,24 @@ $user_avatar = 'img/user.jpg';
 </head>
 <body>
 
+<?php
+require_once 'Smarty.class.php';
+
+$smarty = new Smarty();
+
+$smarty->template_dir = '../HTML_Academy/templates/';
+$smarty->compile_dir = '../HTML_Academy/templates_c/';
+$smarty->config_dir = '../HTML_Academy/configs/';
+$smarty->cache_dir = '../HTML_Academy/cache/';
+
+$smarty->assign('name', 'And');
+
+//** раскомментируйте следующую строку для отображения отладочной консоли
+//$smarty->debugging = true;
+
+$smarty->display('index.tpl');
+?>
+
 <header class="main-header">
     <div class="main-header__container container">
         <h1 class="visually-hidden">YetiCave</h1>
