@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block auth %}
+{% if add_base.0 %}
+<div class="user-menu_image"> <img src="/img/user.jpg" width="80" height="80" alt="Пользователь"> </div>
+<div class="user-menu_logged">
+  <p> {{add_base.1}} </p>
+</div>
+{% else %}
+<ul class="user-menu_list">
+  <li class="user-menu_item"> <a href="#">регистрация</a> </li>
+  <li>
+    <a href="#">Вход</a>
+  </li>
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block categories %}
+{% for value in add_base.3 %}
+<li class="promo__item promo__item--boards">
+  <a class="promo__link" href="/pages/all-lots.html">
+    {{value}}
+  </a>
+</li>
+{% endfor %}
+{% endblock %}
+
+{% block goods %}
+{% for value in add_base.4 %}
+<li class="lots__item lot">
+  <div class="lot__image">
+    <img src={{value.image}} width="350" height="260">
+  </div>
+  <div class="lot__info">
+    <span class="lot__category">
+      {{value.category}}
+    </span>
+    <h3 class="lot__title">
+      <a class="text-link" href="/pages/lot.html">
+        {{value.name}}
+      </a>
+    </h3>
+    <div class="lot__state">
+      <div class="lot__rate">
+        <span class="lot__amount">Стартовая цена</span>
+        <span class="lot__cost">
+          {# {{ MoneyRus({{value.price}}) }} #}
+          {{value.price}}
+          <b class="rub">р</b>
+        </span>
+      </div>
+      <div class="lot__timer timer"></div>
+    </div>
+  </div>
+</li>
+{% endfor %}
+{% endblock %}
+
+
+{% block categories_footer %}
+{% for value in add_base.3 %}
+<li class="nav__item">
+  <a href="/pages/all-lots.html">
+    {{value}}</a>
+</li>
+{% endfor %}
+{% endblock %}
