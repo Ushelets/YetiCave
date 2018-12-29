@@ -8,13 +8,7 @@ $twig = new Twig_Environment($loader, [
  'auto_reload' => true,
 ]);
 
-/* $twig->addFunction('MoneyRus', new Twig_Function('MoneyRus'));
-function MoneyRus($money)
-{
-    $fmt = new NumberFormatter('ru_RU', NumberFormatter::DECIMAL);
-    $a = $fmt->format($money);
-    if (intl_is_failure($fmt->getErrorCode())) {
-    report_error("Formatter error");
-    }
-    return $a;
-} */
+$MoneyRus = new Twig_SimpleFunction('MoneyRus', function ($money) {
+ $data = number_format($money, 0, ',', ' ');
+ return $data;
+});
