@@ -18,13 +18,16 @@
 
 {% block categories %}
 {% for value in add_base.3 %}
-<li class="promo__item promo__item--boards">
-  <a class="promo__link" href="/pages/all-lots.html">
-    {{value}}
-  </a>
+<li class="promo__item">
+  <a class="promo__link" href="/pages/all-lots.php">{{value}}</a>
 </li>
 {% endfor %}
 {% endblock %}
+
+{% block categories_footer %}
+{% include "/include/univers_templ.html" %}
+{% endblock %}
+
 
 {% block goods %}
 {% for value in add_base.4 %}
@@ -45,7 +48,6 @@
       <div class="lot__rate">
         <span class="lot__amount">Стартовая цена</span>
         <span class="lot__cost">
-          {# {{ MoneyRus({{value.price}}) }} #}
           {{MoneyRus(value.price)}}
           <b class="rub">р</b>
         </span>
@@ -53,15 +55,6 @@
       <div class="lot__timer timer"></div>
     </div>
   </div>
-</li>
-{% endfor %}
-{% endblock %}
-
-{% block categories_footer %}
-{% for value in add_base.3 %}
-<li class="nav__item">
-  <a href="/pages/all-lots.html">
-    {{value}}</a>
 </li>
 {% endfor %}
 {% endblock %}
