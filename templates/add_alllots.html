@@ -26,11 +26,11 @@
         {{value.lot_amount}}
       </span>
       <span class="lot__cost">
-        {{MoneyRus(value.price)}}р
+        {{MoneyRus(value.price)}} р
       </span>
     </div>
     <div class="lot__timer timer">
-      {% if value.lot_timer %}
+      {% if value.lot_timer =='' %}
       {{value.lot_timer_finish}}
       {% else %}
       {{value.lot_timer}}

@@ -18,8 +18,8 @@
 
 {% block categories %}
 {% for value in add_base.3 %}
-<li class="promo__item">
-  <a class="promo__link" href="/pages/all-lots.php">{{value}}</a>
+<li class="promo__item {{value.0}}">
+  <a class="promo__link" href="/pages/all-lots.php">{{value.1}}</a>
 </li>
 {% endfor %}
 {% endblock %}
@@ -46,13 +46,18 @@
     </h3>
     <div class="lot__state">
       <div class="lot__rate">
-        <span class="lot__amount">Стартовая цена</span>
+        <span class="lot__amount">{{value.lot_amount}}</span>
         <span class="lot__cost">
           {{MoneyRus(value.price)}}
           <b class="rub">р</b>
         </span>
       </div>
-      <div class="lot__timer timer"></div>
+      <div class="lot__timer timer">
+        {% if value.lot_timer =='' %}
+        ПРОДАНО
+        {% else %}
+        {{TimeToMidnight()}}
+        {% endif %}</div>
     </div>
   </div>
 </li>
