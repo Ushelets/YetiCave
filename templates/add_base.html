@@ -2,10 +2,11 @@
 
 {% block auth %}
 {% if add_base.0 %}
-<div class="user-menu_image"> <img src="/img/user.jpg" width="80" height="80" alt="Пользователь"> </div>
-<div class="user-menu_logged">
+<div class="user-menu_image"> <img src="/img/user.jpg" width="80" height="80" alt="Пользователь">
   <p> {{add_base.1}} </p>
 </div>
+
+
 {% else %}
 <ul class="user-menu_list">
   <li class="user-menu_item"> <a href="#">регистрация</a> </li>
@@ -37,7 +38,7 @@
   </div>
   <div class="lot__info">
     <span class="lot__category">
-      {{value.category}}
+      {{value.category.1}}
     </span>
     <h3 class="lot__title">
       <a class="text-link" href="/pages/lot.html">

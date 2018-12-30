@@ -16,7 +16,7 @@
   </div>
   <div class="lot__info">
     <span class="lot__category">
-      {{value.category}}
+      {{value.category.1}}
     </span>
     <h3 class="lot__title">
       <a class="text-link" href="/pages/lot.html">{{value.name}}</a>
@@ -31,9 +31,9 @@
     </div>
     <div class="lot__timer timer">
       {% if value.lot_timer =='' %}
-      {{value.lot_timer_finish}}
+      ПРОДАНО
       {% else %}
-      {{value.lot_timer}}
+      {{TimeToMidnight()}}
       {% endif %}
     </div>
   </div>
