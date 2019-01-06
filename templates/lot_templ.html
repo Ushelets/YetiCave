@@ -1,62 +1,37 @@
-<!DOCTYPE html>
-<html lang="ru">
+{% block header %}
+{% include "include/header.html" %}
+{% endblock %}
 
-<head>
-  <meta charset="UTF-8">
-  <title>Lot</title>
-  <link href="/css/normalize.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
-</head>
+{% block add_header %}
+{% include "include/add_header.html" %}
+{% endblock %}
 
-<body>
-
-  <header class="main-header">
-    <div class="main-header__container container">
-      <h1 class="visually-hidden">YetiCave</h1>
-      <a class="main-header__logo" href="../index.php">
-        <img src="/img/logo.svg" width="160" height="39" alt="Логотип компании YetiCave">
-      </a>
-      <form class="main-header__search" method="get" action="">
-        <input type="search" name="search" placeholder="Поиск лота">
-        <input class="main-header__search-btn" type="submit" name="find" value="Найти">
-      </form>
-      <a class="main-header__add-lot button" href="add-lot.html">Добавить лот</a>
-      <nav class="user-menu">
-        <ul class="user-menu__list">
-          <li class="user-menu__item">
-            <a href="sign-up.html">Регистрация</a>
-          </li>
-          <li class="user-menu__item">
-            <a href="login.html">Вход</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories %}
-        {% endblock %}
-      </ul>
-    </nav>
-    <section class="lot-item container">
-      {% block lot %}
+<main>
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories %}
       {% endblock %}
-    </section>
-  </main>
-
-  <footer class="main-footer">
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories_footer %}
-        {% endblock %}
-      </ul>
-    </nav>
-    {% block main_footer_bottom %}
+    </ul>
+  </nav>
+  <section class="lot-item container">
+    {% block lot %}
     {% endblock %}
-  </footer>
+  </section>
+</main>
+
+<footer class="main-footer">
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories_footer %}
+      {% include "/include/categories.html" %}
+      {% endblock %}
+    </ul>
+  </nav>
+  {% block main_footer_bottom %}
+  {% include "include/main_footer_bottom.html" %}
+  {% endblock %}
+
+</footer>
 
 </body>
 
