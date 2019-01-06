@@ -1,11 +1,11 @@
 {% extends "all_lots.html" %}
 
 {% block categories %}
-{% include "/include/univers_templ.html" %}
+{% include "include/categories.html" %}
 {% endblock %}
 
 {% block categories_footer %}
-{% include "/include/univers_templ.html" %}
+{% include "include/categories.html" %}
 {% endblock %}
 
 {% block lots %}
@@ -39,4 +39,8 @@
   </div>
 </li>
 {% endfor %}
+{% endblock %}
+
+{% block main_footer_bottom %}
+{% include "include/main_footer_bottom.html" %}
 {% endblock %}

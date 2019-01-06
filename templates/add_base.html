@@ -25,7 +25,7 @@
 {% endblock %}
 
 {% block categories_footer %}
-{% include "/include/univers_templ.html" %}
+{% include "/include/categories.html" %}
 {% endblock %}
 
 
@@ -40,7 +40,7 @@
       {{value.category.1}}
     </span>
     <h3 class="lot__title">
-      <a class="text-link" href="/pages/lot.html">
+      <a class="text-link" href="/pages/lot.php">
         {{value.name}}
       </a>
     </h3>
@@ -62,4 +62,8 @@
   </div>
 </li>
 {% endfor %}
+{% endblock %}
+
+{% block main_footer_bottom %}
+{% include "include/main_footer_bottom.html" %}
 {% endblock %}

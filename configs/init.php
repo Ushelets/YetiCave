@@ -23,3 +23,8 @@ $TimeToMidnight = new Twig_SimpleFunction('TimeToMidnight', function () {
     $minutes = floor(($sec_to_midnight%3600)/60);
     return $hours.':'.$minutes;
 });
+
+$CountHistory = new Twig_SimpleFunction('CountHistory', function ($history) {
+ $data = count($history);
+ return $data;
+});
