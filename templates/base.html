@@ -1,49 +1,58 @@
-{% block header %}
-{% include "include/header.html" %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ru">
 
-<nav class="user-menu">
-  {% block auth %}
+<head>
+  <meta charset="UTF-8">
+  {% block header0 %}
+  <title>{{add_base[6][0]}}</title>
   {% endblock %}
-</nav>
-</div>
-</header>
 
-<main class="container">
-  <section class="promo">
-    <h2 class="promo__title">Нужен стафф для катки?</h2>
-    <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное
-      снаряжение.</p>
-    <ul class="promo__list">
-      {% block categories %}
-      {% endblock %}
-    </ul>
-  </section>
-  <section class="lots">
-    <div class="lots__header">
-      <h2>Открытые лоты</h2>
-    </div>
-    <ul class="lots__list">
-      {% block goods %}
-      {% endblock %}
-    </ul>
-  </section>
-</main>
+  {% block header %}
+  {% include "include/header.html" %}
+  {% endblock %}
 
-<footer class="main-footer">
-  <nav class="nav">
-    <ul class="nav__list container">
-      {% block categories_footer %}
-      {% include "/include/categories.html" %}
-      {% endblock %}
-    </ul>
+  <nav class="user-menu">
+    {% block auth %}
+    {% endblock %}
   </nav>
+  </div>
+  </header>
 
-  {% block main_footer_bottom %}
-  {% include "include/main_footer_bottom.html" %}
-  {% endblock %}
-</footer>
+  <main class="container">
+    <section class="promo">
+      <h2 class="promo__title">Нужен стафф для катки?</h2>
+      <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное
+        снаряжение.</p>
+      <ul class="promo__list">
+        {% block categories %}
+        {% endblock %}
+      </ul>
+    </section>
+    <section class="lots">
+      <div class="lots__header">
+        <h2>Открытые лоты</h2>
+      </div>
+      <ul class="lots__list">
+        {% block goods %}
+        {% endblock %}
+      </ul>
+    </section>
+  </main>
 
-</body>
+  <footer class="main-footer">
+    <nav class="nav">
+      <ul class="nav__list container">
+        {% block categories_footer %}
+        {% include "/include/categories.html" %}
+        {% endblock %}
+      </ul>
+    </nav>
+
+    {% block main_footer_bottom %}
+    {% include "include/main_footer_bottom.html" %}
+    {% endblock %}
+  </footer>
+
+  </body>
 
 </html>

@@ -4,6 +4,17 @@ $is_auth = (bool) rand(0, 1);
 $user_name = 'Константин';
 $user_avatar = 'img/user.jpg';
 
+$titles = [
+'0'=> 'Главная',
+'1'=> 'Добавление лота',
+'2'=> 'Все лоты',
+'3'=> 'Вход',
+'4'=> 'Лот',
+'5'=> 'Мои ставки',
+'6'=> 'Результаты поиска',
+'7'=> 'Регистрация'
+];
+
 $categories = [
  ['promo__item--boards','Доски и лыжи'], 
  ['promo__item--attachment','Крепления'], 
@@ -160,4 +171,13 @@ $goods = [
 ];
 
 
-$add_base = [$is_auth, $user_name, $user_avatar, $categories, $goods, $history];
+$add_base = 
+[
+'0'=> $is_auth, 
+'1'=> $user_name, 
+'2'=> $user_avatar, 
+'3'=> $categories, 
+'4'=> $goods, 
+'5'=> $history, 
+'6'=> $titles
+];

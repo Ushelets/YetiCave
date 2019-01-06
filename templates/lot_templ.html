@@ -1,39 +1,48 @@
-{% block header %}
-{% include "include/header.html" %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ru">
 
-{% block add_header %}
-{% include "include/add_header.html" %}
-{% endblock %}
-
-<main>
-  <nav class="nav">
-    <ul class="nav__list container">
-      {% block categories %}
-      {% include "/include/categories.html" %}
-      {% endblock %}
-    </ul>
-  </nav>
-  <section class="lot-item container">
-    {% block lot %}
-    {% endblock %}
-  </section>
-</main>
-
-<footer class="main-footer">
-  <nav class="nav">
-    <ul class="nav__list container">
-      {% block categories_footer %}
-      {% include "/include/categories.html" %}
-      {% endblock %}
-    </ul>
-  </nav>
-  {% block main_footer_bottom %}
-  {% include "include/main_footer_bottom.html" %}
+<head>
+  <meta charset="UTF-8">
+  {% block header0 %}
+  <title>{{add_base[6][4]}}</title>
   {% endblock %}
 
-</footer>
+  {% block header %}
+  {% include "include/header.html" %}
+  {% endblock %}
 
-</body>
+  {% block add_header %}
+  {% include "include/add_header.html" %}
+  {% endblock %}
+
+  <main>
+    <nav class="nav">
+      <ul class="nav__list container">
+        {% block categories %}
+        {% include "/include/categories.html" %}
+        {% endblock %}
+      </ul>
+    </nav>
+    <section class="lot-item container">
+      {% block lot %}
+      {% endblock %}
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <nav class="nav">
+      <ul class="nav__list container">
+        {% block categories_footer %}
+        {% include "/include/categories.html" %}
+        {% endblock %}
+      </ul>
+    </nav>
+    {% block main_footer_bottom %}
+    {% include "include/main_footer_bottom.html" %}
+    {% endblock %}
+
+  </footer>
+
+  </body>
 
 </html>
