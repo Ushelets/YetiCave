@@ -10,6 +10,7 @@
   <nav class="nav">
     <ul class="nav__list container">
       {% block categories %}
+      {% include "include/categories.html" %}
       {% endblock %}
     </ul>
   </nav>
@@ -36,11 +37,13 @@
   <nav class="nav">
     <ul class="nav__list container">
       {% block categories_footer %}
+      {% include "include/categories.html" %}
       {% endblock %}
     </ul>
   </nav>
 
   {% block main_footer_bottom %}
+  {% include "include/main_footer_bottom.html" %}
   {% endblock %}
 </footer>
 

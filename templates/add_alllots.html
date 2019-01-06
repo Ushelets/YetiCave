@@ -1,13 +1,5 @@
 {% extends "all_lots.html" %}
 
-{% block categories %}
-{% include "include/categories.html" %}
-{% endblock %}
-
-{% block categories_footer %}
-{% include "include/categories.html" %}
-{% endblock %}
-
 {% block lots %}
 {% for value in add_base.4 %}
 <li class="lots__item lot">
@@ -39,8 +31,4 @@
   </div>
 </li>
 {% endfor %}
-{% endblock %}
-
-{% block main_footer_bottom %}
-{% include "include/main_footer_bottom.html" %}
 {% endblock %}
