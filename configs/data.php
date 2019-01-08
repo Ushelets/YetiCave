@@ -3,6 +3,7 @@
 $is_auth = (bool) rand(0, 1);
 $user_name = 'Константин';
 $user_avatar = 'img/user.jpg';
+$keyG = $_GET['key'];
 
 $titles = [
 '0'=> 'Главная',
@@ -91,7 +92,6 @@ $history = [
     $sales_mask_Oakley_Canopy
  ];
 
-
 $goods = [
  [
   'name' => '2014 Rossignol District Snowboard',
@@ -179,5 +179,6 @@ $add_base =
 '3'=> $categories, 
 '4'=> $goods, 
 '5'=> $history, 
-'6'=> $titles
+'6'=> $titles,
+'7'=> $keyG,
 ];

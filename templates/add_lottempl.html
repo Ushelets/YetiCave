@@ -1,11 +1,7 @@
 {% extends "lot_templ.html" %}
 
-{% block categories %}
-{% include "./include/categories.html" %}
-{% endblock %}
-
 {% block lot %}
-{% for value in add_base.4 %}
+{% for key, value in add_base.4 if key in add_base.7 %}
 <h2>{{value.name}}</h2>
 <div class="lot-item__content">
   <div class="lot-item__left">
