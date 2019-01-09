@@ -84,12 +84,12 @@ $sales_jacket_DC_Mutini = [];
 $sales_mask_Oakley_Canopy = [];
 
 $history = [
-    $sales_rossignol_snowbord, 
-    $sales_DC_Ply_Mens, 
-    $sales_union_contact,
-    $sales_boots_DC_Mutini, 
-    $sales_jacket_DC_Mutini,
-    $sales_mask_Oakley_Canopy
+  '0'=> $sales_rossignol_snowbord, 
+  '1'=> $sales_DC_Ply_Mens, 
+  '2'=> $sales_union_contact,
+  '3'=> $sales_boots_DC_Mutini, 
+  '4'=> $sales_jacket_DC_Mutini,
+  '5'=> $sales_mask_Oakley_Canopy
  ];
 
 $goods = [
