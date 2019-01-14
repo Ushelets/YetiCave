@@ -3,7 +3,6 @@
 $is_auth = (bool) rand(0, 1);
 $user_name = 'Константин';
 $user_avatar = 'img/user.jpg';
-$keyG = $_GET['key'];
 
 $titles = [
 '0'=> 'Главная',
@@ -170,9 +169,33 @@ $goods = [
  ],
 ];
 
+$keyG = $_GET['key'];
 
-$add_base = 
-[
+$add_lot = [
+ "0"=> $_POST['lot-name'],
+ "1"=> $_POST['category'],
+ "2"=> $_POST['message'],
+ "3"=> $_POST['image'],
+ "4"=> $_POST['lot-rate'],
+ "5"=> $_POST['lot-step'],
+ "6"=> $_POST['lot-date'],
+];
+
+$uploads_dir = $_SERVER['DOCUMENT_ROOT'].'/img/';
+$image_err = $_FILES["image"]["error"];
+$upload_ok = UPLOAD_ERR_OK;
+$tmp_name = $_FILES["image"]["tmp_name"][$key];
+$name = basename($_FILES["image"]["name"][$key]);
+
+$add_image = [
+  "0"=> $uploads_dir,
+  "1"=> $image_err,
+  "2"=> $upload_ok,
+  "3"=> $tmp_name,
+  "4"=> $name,
+];
+
+$add_base = [
 '0'=> $is_auth, 
 '1'=> $user_name, 
 '2'=> $user_avatar, 
@@ -181,4 +204,6 @@ $add_base =
 '5'=> $history, 
 '6'=> $titles,
 '7'=> $keyG,
+'8'=> $add_lot,
+'9'=> $add_image,
 ];
