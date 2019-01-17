@@ -32,8 +32,23 @@ $CountHistory = new Twig_SimpleFunction('CountHistory', function ($history) {
 $AddImage = new Twig_SimpleFunction('AddImage', function ($image_err, $tmp_name, $uploads_dir, $name) {
  foreach ($image_err as $key => $error) {
   if ($error == UPLOAD_ERR_OK) {      
-   move_uploaded_file($tmp_name, "$uploads_dir/$name");
-  }
+    $tmp_name_key = $tmp_name[$key];
+    $name_key = basename($name[$key]);    
+    move_uploaded_file($tmp_name_key, "$uploads_dir/$name_key");    
+  }  
  }
+});
 
+$ImageName = new Twig_SimpleFunction('ImageName', function ($image_err,$name) {
+ foreach ($image_err as $key => $error) {
+  if ($error == UPLOAD_ERR_OK) {          
+    $name_key = basename($name[$key]);        
+    return $name_key;    
+  }  
+ }
+});
+
+$DateFormat = new Twig_SimpleFunction('DateFormat',function($date) {
+  $date_frt = new DateTime($date);
+  return $date_frt->format('d.m.Y') ;
 });

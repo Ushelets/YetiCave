@@ -183,16 +183,17 @@ $add_lot = [
 
 $uploads_dir = $_SERVER['DOCUMENT_ROOT'].'/img/';
 $image_err = $_FILES["image"]["error"];
-$upload_ok = UPLOAD_ERR_OK;
-$tmp_name = $_FILES["image"]["tmp_name"][$key];
-$name = basename($_FILES["image"]["name"][$key]);
+$tmp_name = $_FILES["image"]["tmp_name"];
+$name = $_FILES["image"]["name"];
+//$name_key = $_FILES["image"]["name"][$key];
+$upload_err_ok = UPLOAD_ERR_OK;
 
 $add_image = [
   "0"=> $uploads_dir,
-  "1"=> $image_err,
-  "2"=> $upload_ok,
-  "3"=> $tmp_name,
-  "4"=> $name,
+  "1"=> $image_err,  
+  "2"=> $tmp_name,
+  "3"=> $name,  
+  "4"=> $upload_err_ok,
 ];
 
 $add_base = [

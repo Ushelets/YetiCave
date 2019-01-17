@@ -7,4 +7,3 @@ $twig->addFunction($TimeToMidnight);
 $twig->addFunction($CountHistory);
 
 echo $twig->render('add_addLot.html', ['add_base' => $add_base]);
-echo $_SERVER['DOCUMENT_ROOT'].'/img/';
