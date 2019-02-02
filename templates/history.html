@@ -4,30 +4,22 @@
 <head>
   <meta charset="UTF-8">
   {% block header0 %}
-  <title>{{add_base[6][8]}}</title>
+  <title>{{add_base[6][9]}}</title>
   {% endblock %}
 
-  {% block header %}
-  {% include "include/header.html" %}
-  {% endblock %}
-
-  {% block add_header %}
-  {% include "include/add_header.html" %}
-  {% endblock %}
+  <header class="main-header">
+    <div class="main-header__container container">
+      <h1 class="visually-hidden">YetiCave</h1>
+      <a class="main-header__logo" href='../index.php'>
+        <img src="/img/logo.svg" width="160" height="39" alt="Логотип компании YetiCave">
+      </a>
+    </div>
+  </header>
 
   <main>
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories %}
-        {% include "include/categories.html" %}
-        {% endblock %}
-      </ul>
-    </nav>
     <div class="container">
       <section class="lots">
-        <h2>Все лоты в категории <span>
-            "{{add_base.7}}"
-          </span></h2>
+        <h2>{{add_base[6][9]}}</h2>
         <ul class="lots__list">
           {% block lots %}
           {% endblock %}
@@ -45,14 +37,6 @@
   </main>
 
   <footer class="main-footer">
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories_footer %}
-        {% include "include/categories.html" %}
-        {% endblock %}
-      </ul>
-    </nav>
-
     {% block main_footer_bottom %}
     {% include "include/main_footer_bottom.html" %}
     {% endblock %}

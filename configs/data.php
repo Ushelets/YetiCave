@@ -4,6 +4,25 @@ $is_auth = (bool) rand(0, 1);
 $user_name = 'Константин';
 $user_avatar = 'img/user.jpg';
 
+$users = [
+ [
+  'email' => 'ignat.v@gmail.com',
+  'name' => 'Игнат',
+  'password' => '$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka',
+ ],
+ [
+  'email' => 'kitty_93@li.ru',
+  'name' => 'Леночка',
+  'password' => '$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa',
+ ],
+ [
+  'email' => 'warrior07@mail.ru',
+  'name' => 'Руслан',
+  'password' => '$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW',
+ ],
+];
+
+
 $titles = [
 '0'=> 'Главная',
 '1'=> 'Добавление лота',
@@ -12,7 +31,9 @@ $titles = [
 '4'=> 'Лот',
 '5'=> 'Мои ставки',
 '6'=> 'Результаты поиска',
-'7'=> 'Регистрация'
+'7'=> 'Регистрация',
+'8'=> 'Лоты по категориям',
+'9'=> 'История просмотров'
 ];
 
 $categories = [
@@ -185,7 +206,6 @@ $uploads_dir = $_SERVER['DOCUMENT_ROOT'].'/img/';
 $image_err = $_FILES["image"]["error"];
 $tmp_name = $_FILES["image"]["tmp_name"];
 $name = $_FILES["image"]["name"];
-//$name_key = $_FILES["image"]["name"][$key];
 $upload_err_ok = UPLOAD_ERR_OK;
 
 $add_image = [
@@ -207,4 +227,5 @@ $add_base = [
 '7'=> $keyG,
 '8'=> $add_lot,
 '9'=> $add_image,
+'10'=> $users,
 ];
