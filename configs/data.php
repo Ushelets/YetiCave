@@ -192,7 +192,7 @@ $goods = [
 
 $keyG = $_GET['key'];
 
-$CookieHistory = $_COOKIE['HistoryView'];
+$cookieHistory = $_COOKIE['HistoryView'];
 
 $add_lot = [
  "0"=> $_POST['lot-name'],
@@ -230,5 +230,5 @@ $add_base = [
 '8'=> $add_lot,
 '9'=> $add_image,
 '10'=> $users,
-'11'=> $CookieHistory,
+'11'=> $cookieHistory,
 ];

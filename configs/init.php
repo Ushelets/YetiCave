@@ -58,7 +58,3 @@ $HistoryCookie = new Twig_SimpleFunction('HistoryCookie',function(){
     $key = $_GET['key'];
     setcookie("HistoryView[$key]", $key);       
 });
-
-/* $temp = new Twig_SimpleFunction('temp',function($add_base[11]){
-
-}); */
