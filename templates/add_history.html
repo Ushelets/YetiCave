@@ -1,17 +1,18 @@
 {% extends "history.html" %}
 
-{% block lots %}
-{% for value in add_base.4 %}
+{% block viewOnCookie %}
+{% for value1 in add_base.11 %}
+{% for key, value in add_base.4 if key in value1 %}
 <li class="lots__item lot">
   <div class="lot__image">
     <img src={{value.image}} width="350" height="260">
   </div>
   <div class="lot__info">
     <span class="lot__category">
-      {{value.category.1}}
+      {{value.category}}
     </span>
     <h3 class="lot__title">
-      <a class="text-link" href="/pages/lot.php">{{value.name}}</a>
+      <a class="text-link" href="/pages/lot.php?key={{key}}">{{value.name}}</a>
     </h3>
     <div class="lot__rate">
       <span class="lot__amount">
@@ -30,5 +31,6 @@
     </div>
   </div>
 </li>
+{% endfor %}
 {% endfor %}
 {% endblock %}

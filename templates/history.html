@@ -3,17 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  {% block header0 %}
   <title>{{add_base[6][9]}}</title>
+
+  {% block header %}
+  {% include "include/header.html" %}
   {% endblock %}
 
-  <header class="main-header">
-    <div class="main-header__container container">
-      <h1 class="visually-hidden">YetiCave</h1>
-      <a class="main-header__logo" href='../index.php'>
-        <img src="/img/logo.svg" width="160" height="39" alt="Логотип компании YetiCave">
-      </a>
-    </div>
+  </div>
   </header>
 
   <main>
@@ -21,10 +17,11 @@
       <section class="lots">
         <h2>{{add_base[6][9]}}</h2>
         <ul class="lots__list">
-          {% block lots %}
+          {% block viewOnCookie %}
           {% endblock %}
         </ul>
       </section>
+
       <ul class="pagination-list">
         <li class="pagination-item pagination-item-prev"><a>Назад</a></li>
         <li class="pagination-item pagination-item-active"><a>1</a></li>

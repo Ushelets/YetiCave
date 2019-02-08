@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/data.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 $loader = new Twig_Loader_Filesystem($_SERVER['DOCUMENT_ROOT'] . '/templates');
@@ -52,3 +53,12 @@ $DateFormat = new Twig_SimpleFunction('DateFormat',function($date) {
   $date_frt = new DateTime($date);
   return $date_frt->format('d.m.Y') ;
 });
+
+$HistoryCookie = new Twig_SimpleFunction('HistoryCookie',function(){
+    $key = $_GET['key'];
+    setcookie("HistoryView[$key]", $key);       
+});
+
+/* $temp = new Twig_SimpleFunction('temp',function($add_base[11]){
+
+}); */
