@@ -1,56 +1,36 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <title>{{add_base[6][0]}}</title>
-
-  {% block header %}
-  {% include "include/header.html" %}
+<nav class="user-menu">
+  {% block auth %}
   {% endblock %}
+</nav>
+</div>
+</header>
 
-  <nav class="user-menu">
-    {% block auth %}
-    {% endblock %}
+<main class="container">
+  <section class="promo">
+    <h2 class="promo__title">Нужен стафф для катки?</h2>
+    <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное
+      снаряжение.</p>
+    <ul class="promo__list">
+      {% block categories %}
+      {% endblock %}
+    </ul>
+  </section>
+  <section class="lots">
+    <div class="lots__header">
+      <h2>Открытые лоты</h2>
+    </div>
+    <ul class="lots__list">
+      {% block goods %}
+      {% endblock %}
+    </ul>
+  </section>
+</main>
+
+<footer class="main-footer">
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories_footer %}
+      {% include "/include/categories.html" %}
+      {% endblock %}
+    </ul>
   </nav>
-  </div>
-  </header>
-
-  <main class="container">
-    <section class="promo">
-      <h2 class="promo__title">Нужен стафф для катки?</h2>
-      <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное
-        снаряжение.</p>
-      <ul class="promo__list">
-        {% block categories %}
-        {% endblock %}
-      </ul>
-    </section>
-    <section class="lots">
-      <div class="lots__header">
-        <h2>Открытые лоты</h2>
-      </div>
-      <ul class="lots__list">
-        {% block goods %}
-        {% endblock %}
-      </ul>
-    </section>
-  </main>
-
-  <footer class="main-footer">
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories_footer %}
-        {% include "/include/categories.html" %}
-        {% endblock %}
-      </ul>
-    </nav>
-
-    {% block main_footer_bottom %}
-    {% include "include/main_footer_bottom.html" %}
-    {% endblock %}
-  </footer>
-
-  </body>
-
-</html>

@@ -1,58 +1,40 @@
-<!DOCTYPE html>
-<html lang="ru">
+{% block add_header %}
+{% include "include/add_header.html" %}
+{% endblock %}
 
-<head>
-  <meta charset="UTF-8">
-  {% block header0 %}
-  <title>{{add_base[6][3]}}</title>
-  {% endblock %}
+<main>
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories %}
+      {% include "/include/categories.html" %}
+      {% endblock %}
+    </ul>
+  </nav>
 
-  {% block header %}
-  {% include "include/header.html" %}
-  {% endblock %}
-  {% block add_header %}
-  {% include "include/add_header.html" %}
-  {% endblock %}
+  <form class="form container" action="../index.php" method="post">
+    <!-- form--invalid -->
+    <h2>Вход</h2>
+    <div class="form__item">
+      <!-- form__item--invalid -->
+      <label for="email">E-mail*</label>
+      <input id="email" type="text" name="email" placeholder="Введите e-mail" required>
+      <span class="form__error">Введите e-mail</span>
+    </div>
+    <div class="form__item form__item--last">
+      <label for="password">Пароль*</label>
+      <input id="password" type="text" name="password" placeholder="Введите пароль" required>
+      <span class="form__error">Введите пароль</span>
+    </div>
+    <button type="submit" class="button">Войти</button>
 
-  <main>
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories %}
-        {% include "/include/categories.html" %}
-        {% endblock %}
-      </ul>
-    </nav>
-    <form class="form container" action="https://echo.htmlacademy.ru" method="post">
-      <!-- form--invalid -->
-      <h2>Вход</h2>
-      <div class="form__item">
-        <!-- form__item--invalid -->
-        <label for="email">E-mail*</label>
-        <input id="email" type="text" name="email" placeholder="Введите e-mail" required>
-        <span class="form__error">Введите e-mail</span>
-      </div>
-      <div class="form__item form__item--last">
-        <label for="password">Пароль*</label>
-        <input id="password" type="text" name="password" placeholder="Введите пароль" required>
-        <span class="form__error">Введите пароль</span>
-      </div>
-      <button type="submit" class="button">Войти</button>
-    </form>
-  </main>
+  </form>
+</main>
 
-  <footer class="main-footer">
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories_footer %}
-        {% include "/include/categories.html" %}
-        {% endblock %}
-      </ul>
-    </nav>
-    {% block main_footer_bottom %}
-    {% include "include/main_footer_bottom.html" %}
-    {% endblock %}
-  </footer>
-
-  </body>
-
-</html>
+<footer class="main-footer">
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories_footer %}
+      {% include "/include/categories.html" %}
+      {% endblock %}
+    </ul>
+  </nav>

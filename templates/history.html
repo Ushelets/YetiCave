@@ -1,42 +1,25 @@
-<!DOCTYPE html>
-<html lang="ru">
+</div>
+</header>
 
-<head>
-  <meta charset="UTF-8">
-  <title>{{add_base[6][9]}}</title>
-
-  {% block header %}
-  {% include "include/header.html" %}
-  {% endblock %}
-  </div>
-  </header>
-
-  <main>
-    <div class="container">
-      <section class="lots">
-        <h2>{{add_base[6][9]}}</h2>
-        <ul class="lots__list">
-          {% block viewOnCookie %}
-          {% endblock %}
-        </ul>
-      </section>
-
-      <ul class="pagination-list">
-        <li class="pagination-item pagination-item-prev"><a>Назад</a></li>
-        <li class="pagination-item pagination-item-active"><a>1</a></li>
-        <li class="pagination-item"><a href="#">2</a></li>
-        <li class="pagination-item"><a href="#">3</a></li>
-        <li class="pagination-item"><a href="#">4</a></li>
-        <li class="pagination-item pagination-item-next"><a href="#">Вперед</a></li>
+<main>
+  <div class="container">
+    <section class="lots">
+      <h2>{{add_base[6][9]}}</h2>
+      <ul class="lots__list">
+        {% block viewOnCookie %}
+        {% endblock %}
       </ul>
-    </div>
-  </main>
+    </section>
 
-  <footer class="main-footer">
-    {% block main_footer_bottom %}
-    {% include "include/main_footer_bottom.html" %}
-    {% endblock %}
-  </footer>
-  </body>
+    <ul class="pagination-list">
+      <li class="pagination-item pagination-item-prev"><a>Назад</a></li>
+      <li class="pagination-item pagination-item-active"><a>1</a></li>
+      <li class="pagination-item"><a href="#">2</a></li>
+      <li class="pagination-item"><a href="#">3</a></li>
+      <li class="pagination-item"><a href="#">4</a></li>
+      <li class="pagination-item pagination-item-next"><a href="#">Вперед</a></li>
+    </ul>
+  </div>
+</main>
 
-</html>
+<footer class="main-footer">

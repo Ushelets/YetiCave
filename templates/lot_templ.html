@@ -1,47 +1,23 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <title>{{add_base[6][4]}}</title>
-
-  {% block header %}
-  {% include "include/header.html" %}
-  {% endblock %}
-
-  {% block add_header %}
-  {% include "include/add_header.html" %}
-  {% endblock %}
-
-  <main>
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories %}
-        {% include "/include/categories.html" %}
-        {% endblock %}
-      </ul>
-    </nav>
-    <section class="lot-item container">
-      {% block lot %}
+<main>
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories %}
+      {% include "/include/categories.html" %}
       {% endblock %}
-      {{HistoryCookie()}}
-    </section>
-  </main>
-
-  <footer class="main-footer">
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories_footer %}
-        {% include "/include/categories.html" %}
-        {% endblock %}
-      </ul>
-    </nav>
-    {% block main_footer_bottom %}
-    {% include "include/main_footer_bottom.html" %}
+    </ul>
+  </nav>
+  <section class="lot-item container">
+    {% block lot %}
     {% endblock %}
+    {{HistoryCookie()}}
+  </section>
+</main>
 
-  </footer>
-
-  </body>
-
-</html>
+<footer class="main-footer">
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories_footer %}
+      {% include "/include/categories.html" %}
+      {% endblock %}
+    </ul>
+  </nav>

@@ -1,0 +1,19 @@
+{% block add_header %}
+{% include "include/add_header.html" %}
+{% endblock %}
+
+<main>
+  <center>
+    <font color='#C42828'>
+      <h4>{{"Войдите под своим паролем или зарегестрируйтесь!"}}</h4>
+    </font>
+  </center>
+</main>
+<footer class="main-footer">
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories_footer %}
+      {% include "include/categories.html" %}
+      {% endblock %}
+    </ul>
+  </nav>

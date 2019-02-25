@@ -1,63 +1,37 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  {% block header0 %}
-  <title>{{add_base[6][8]}}</title>
-  {% endblock %}
-
-  {% block header %}
-  {% include "include/header.html" %}
-  {% endblock %}
-
-  {% block add_header %}
-  {% include "include/add_header.html" %}
-  {% endblock %}
-
-  <main>
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories %}
-        {% include "include/categories.html" %}
+<main>
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories %}
+      {% include "include/categories.html" %}
+      {% endblock %}
+    </ul>
+  </nav>
+  <div class="container">
+    <section class="lots">
+      <h2>Все лоты в категории <span>
+          "{{add_base.7}}"
+        </span></h2>
+      <ul class="lots__list">
+        {% block lots %}
         {% endblock %}
       </ul>
-    </nav>
-    <div class="container">
-      <section class="lots">
-        <h2>Все лоты в категории <span>
-            "{{add_base.7}}"
-          </span></h2>
-        <ul class="lots__list">
-          {% block lots %}
-          {% endblock %}
-        </ul>
-      </section>
-      <ul class="pagination-list">
-        <li class="pagination-item pagination-item-prev"><a>Назад</a></li>
-        <li class="pagination-item pagination-item-active"><a>1</a></li>
-        <li class="pagination-item"><a href="#">2</a></li>
-        <li class="pagination-item"><a href="#">3</a></li>
-        <li class="pagination-item"><a href="#">4</a></li>
-        <li class="pagination-item pagination-item-next"><a href="#">Вперед</a></li>
-      </ul>
-    </div>
-  </main>
+    </section>
+    <ul class="pagination-list">
+      <li class="pagination-item pagination-item-prev"><a>Назад</a></li>
+      <li class="pagination-item pagination-item-active"><a>1</a></li>
+      <li class="pagination-item"><a href="#">2</a></li>
+      <li class="pagination-item"><a href="#">3</a></li>
+      <li class="pagination-item"><a href="#">4</a></li>
+      <li class="pagination-item pagination-item-next"><a href="#">Вперед</a></li>
+    </ul>
+  </div>
+</main>
 
-  <footer class="main-footer">
-    <nav class="nav">
-      <ul class="nav__list container">
-        {% block categories_footer %}
-        {% include "include/categories.html" %}
-        {% endblock %}
-      </ul>
-    </nav>
-
-    {% block main_footer_bottom %}
-    {% include "include/main_footer_bottom.html" %}
-    {% endblock %}
-  </footer>
-
-  </body>
-
-</html>
+<footer class="main-footer">
+  <nav class="nav">
+    <ul class="nav__list container">
+      {% block categories_footer %}
+      {% include "include/categories.html" %}
+      {% endblock %}
+    </ul>
+  </nav>

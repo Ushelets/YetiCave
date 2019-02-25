@@ -9,17 +9,20 @@ $users = [
   'email' => 'ignat.v@gmail.com',
   'name' => 'Игнат',
   'password' => '$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka',
+  'pass_real' => 'ug0GdVMi',
  ],
  [
   'email' => 'kitty_93@li.ru',
   'name' => 'Леночка',
   'password' => '$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa',
+  'pass_real' => 'daecNazD',
  ],
  [
   'email' => 'warrior07@mail.ru',
   'name' => 'Руслан',
   'password' => '$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW',
- ],
+  'pass_real' => 'oixb3aL8',
+ ], 
 ];
 
 
@@ -218,6 +221,15 @@ $add_image = [
   "4"=> $upload_err_ok,
 ];
 
+$login = [    
+    'session_login_email' => '',
+    'session_login_password' => '',
+    'post_email' => $_POST['email'],
+    'post_password' => $_POST['password'],           
+];
+
+$session_start = session_start();
+
 $add_base = [
 '0'=> $is_auth, 
 '1'=> $user_name, 
@@ -231,4 +243,6 @@ $add_base = [
 '9'=> $add_image,
 '10'=> $users,
 '11'=> $cookieHistory,
+'12'=> $login,
+'13'=> $session_start,
 ];

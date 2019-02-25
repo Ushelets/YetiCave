@@ -56,26 +56,9 @@ $DateFormat = new Twig_SimpleFunction('DateFormat',function($date) {
 
 $HistoryCookie = new Twig_SimpleFunction('HistoryCookie',function(){
     $key = $_GET['key'];
-    setcookie("HistoryView[$key]", $key);       
+    setcookie("HistoryView[$key]", $key, time() + 86400);       
 });
 
-$ClrHistoryCookie = new Twig_SimpleFunction('ClrHistoryCookie',function(){
-    //$add_base[11] = [];
-    unset($GLOBALS['cookieHistory']);    
-    unset($GLOBALS['add_base']);    
-    unset($_COOKIE['HistoryView']);
-    setcookie('HistoryView', '', time() - 3600, '../');
-    setcookie('key', '', time() - 3600, '../');
-    return $add_base[11];
-});
-
-$VarDamp = new Twig_SimpleFunction('VarDamp',function(){    
-    echo '$add_base[11]', '    ';
-    var_dump($add_base[11]);
-    echo '<br>', '$cookieHistory', '    ';
-    var_dump($cookieHistory);
-    echo '<br>', '$_COOKIE[HistoryView]', '   ';
-    var_dump($_COOKIE['HistoryView']);
-    echo '<br>', '$_COOKIE', '   ';
-    var_dump($_COOKIE);
+$PasswordVerify = new Twig_SimpleFunction('PasswordVerify',function($session_pass,$saved_pass){
+    return  password_verify($session_pass, $saved_pass);
 });
