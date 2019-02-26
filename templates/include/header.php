@@ -1,15 +1,16 @@
 <?php
 
-$login = $add_base[12];
-
-foreach ($users as $value) {
- if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
-  echo '
+function headerPage($users, $title)
+{
+ foreach ($users as $value) {
+  if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
+   echo '
           <!DOCTYPE html>
 <html lang="ru">
 
 <head>
   <meta charset="UTF-8">
+  <title>' . $title . '</title>
 <link href="/css/normalize.min.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
 </head>
@@ -28,15 +29,21 @@ foreach ($users as $value) {
       </form>
       <a class="main-header__add-lot button" href="../pages/add-lot.php">Добавить лот</a>
       <div class="user-menu_image"> <img src="/img/user.jpg" width="80" height="80" alt="Пользователь">
-        <p>'. $value['name'] .'</p>
+        <p>' . $value['name'] . '</p>
   <a class="text-link" href="../pages/session_close.php">Завершить
     сеанс</a>
 </div>
           ';
-  break;
- } else {
-  echo '
-          <link href="/css/normalize.min.css" rel="stylesheet">
+   break;
+  } else {
+   echo '
+   <!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>' . $title . '</title>
+<link href="/css/normalize.min.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
 </head>
 
@@ -53,6 +60,7 @@ foreach ($users as $value) {
         <input class="main-header__search-btn" type="submit" name="find" value="Найти">
       </form>
           ';
-  break;
+   break;
+  }
  }
 }

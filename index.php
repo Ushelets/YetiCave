@@ -8,9 +8,10 @@ $twig->addFunction($MoneyRus);
 $twig->addFunction($TimeToMidnight);
 $twig->addFunction($PasswordVerify);
 
-$users = $add_base[10];
+//$users = $add_base[10];
 
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header.php';
+headerPage($add_base[10], $add_base[6][0]);
 
 foreach ($users as $value) {
  if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {

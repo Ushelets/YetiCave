@@ -9,9 +9,8 @@ $twig->addFunction($TimeToMidnight);
 $twig->addFunction($CountHistory);
 $twig->addFunction($HistoryCookie);
 
-$users = $add_base[10];
-
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header_all.php';
+headerPage($add_base[10], $add_base[6][4]);
 
 foreach ($users as $value) {
  if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {

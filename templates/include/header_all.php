@@ -1,15 +1,16 @@
 <?php
 
-$login = $add_base[12];
-
-foreach ($users as $value) {
- if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
-  echo '
-          <!DOCTYPE html>
+function headerPage($users, $title)
+{
+ foreach ($users as $value) {
+  if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
+   echo '
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
   <meta charset="UTF-8">
+  <title>' . $title . '</title>
 <link href="/css/normalize.min.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
 </head>
@@ -34,10 +35,16 @@ foreach ($users as $value) {
       </div>
 </header>
           ';
-  break;
- } else {
-  echo '
-          <link href="/css/normalize.min.css" rel="stylesheet">
+   break;
+  } else {
+   echo '
+  <!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>' . $title . '</title>
+<link href="/css/normalize.min.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
 </head>
 
@@ -56,6 +63,8 @@ foreach ($users as $value) {
       </div>
 </header>
           ';
-  break;
+   break;
+  }
  }
+
 }
