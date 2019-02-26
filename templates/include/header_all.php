@@ -60,6 +60,16 @@ function headerPage($users, $title)
         <input type="search" name="search" placeholder="Поиск лота">
         <input class="main-header__search-btn" type="submit" name="find" value="Найти">
       </form>
+      <nav class="user-menu">
+      <ul class="user-menu__list">
+      <li class="user-menu_item">
+          <a class="text-link" href="../pages/login.php">Вход</a>
+        </li>  
+      <li class="user-menu_item">
+          <a class="text-link" href="../pages/sign-up.php">Регистрация</a>
+        </li>        
+      </ul>
+    </nav>
       </div>
 </header>
 ';

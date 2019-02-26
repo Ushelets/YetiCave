@@ -8,7 +8,7 @@ $twig->addFunction($MoneyRus);
 $twig->addFunction($TimeToMidnight);
 $twig->addFunction($PasswordVerify);
 
-include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header_all.php';
 headerPage($add_base[10], $add_base[6][0]);
 
 foreach ($add_base[10] as $value) {

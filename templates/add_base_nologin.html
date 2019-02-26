@@ -1,16 +1,5 @@
 {% extends "base.html" %}
 
-{% block auth %}
-<ul class="user-menu_list">
-  <li class="user-menu_item">
-    <a class="text-link" href="../pages/sign-up.php">Регистрация</a>
-  </li>
-  <li class="user-menu_item">
-    <a class="text-link" href="../pages/login.php">Вход</a>
-  </li>
-</ul>
-{% endblock %}
-
 {% block categories %}
 {% for value in add_base.3 %}
 <li class="promo__item {{value.0}}">

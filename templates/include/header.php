@@ -58,7 +58,9 @@ function headerPage($users, $title)
       <form class="main-header__search" method="get" action="">
         <input type="search" name="search" placeholder="Поиск лота">
         <input class="main-header__search-btn" type="submit" name="find" value="Найти">
+        
       </form>
+      
 ';
    break;
   }

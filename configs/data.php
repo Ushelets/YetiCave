@@ -224,14 +224,14 @@ $add_image = [
   "4"=> $upload_err_ok,
 ];
 
-$login = [    
+/* $login = [    
     'session_login_email' => '',
     'session_login_password' => '',
     'post_email' => $_POST['email'],
     'post_password' => $_POST['password'],           
 ];
 
-$session_start = session_start();
+$session_start = session_start(); */
 
 $add_base = [
 '0'=> $is_auth, 
@@ -246,6 +246,6 @@ $add_base = [
 '9'=> $add_image,
 '10'=> $users,
 '11'=> $cookieHistory,
-'12'=> $login,
-'13'=> $session_start,
+/* '12'=> $login,
+'13'=> $session_start, */
 ];
