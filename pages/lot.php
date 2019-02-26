@@ -12,7 +12,7 @@ $twig->addFunction($HistoryCookie);
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header_all.php';
 headerPage($add_base[10], $add_base[6][4]);
 
-foreach ($users as $value) {
+foreach ($add_base[10] as $value) {
  if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
   echo $twig->render('add_lottempl.html', ['add_base' => $add_base]);
   break;

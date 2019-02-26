@@ -11,7 +11,7 @@ $twig->addFunction($DateFormat);
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header.php';
 headerPage($add_base[10], $add_base[6][1]);
 
-foreach ($users as $value) {
+foreach ($add_base[10] as $value) {
  if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
   echo $twig->render('add_add.html', ['add_base' => $add_base]);
   break;

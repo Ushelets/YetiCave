@@ -28,13 +28,13 @@ function headerPage($users, $title)
         <input class="main-header__search-btn" type="submit" name="find" value="Найти">
       </form>
       <a class="main-header__add-lot button" href="../pages/add-lot.php">Добавить лот</a>
-      <div class="user-menu_image"> <img src="/img/user.jpg" width="80" height="80" alt="Пользователь">
+      <div class="user-menu_image"> <img src=" ' . $value['image'] . ' " width="80" height="80" alt="Пользователь">
         <p>' . $value['name'] . '</p>
     <a class="text-link" href="../pages/session_close.php">Завершить
     сеанс</a>
       </div>
 </header>
-          ';
+';
    break;
   } else {
    echo '
@@ -62,7 +62,7 @@ function headerPage($users, $title)
       </form>
       </div>
 </header>
-          ';
+';
    break;
   }
  }
