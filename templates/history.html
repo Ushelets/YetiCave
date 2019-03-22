@@ -1,10 +1,11 @@
 </div>
 </header>
 
+{% set history_view = add_base[6][9] %}
 <main>
   <div class="container">
     <section class="lots">
-      <h2>{{add_base[6][9]}}</h2>
+      <h2>{{history_view.titles}}</h2>
       <ul class="lots__list">
         {% block viewOnCookie %}
         {% endblock %}

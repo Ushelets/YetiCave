@@ -8,7 +8,6 @@ unset($login, $_SESSION);
 echo "
 <html>
   <head>
-   <meta http-equiv='Refresh' content='0; URL=http://createsite/index.php'>
+   <meta http-equiv='Refresh' content='0; URL=http://htmlacademy/index.php'>
   </head>
 </html>";
-

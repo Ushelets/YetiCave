@@ -3,17 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  {% block header0 %}
-  <title>{{add_base[6][7]}}</title>
-  {% endblock %}
-
-  {% block header %}
-  {% include "include/header.html" %}
-  {% endblock %}
-
-  {% block add_header %}
-  {% include "include/add_header.html" %}
-  {% endblock %}
 
   <main>
     <nav class="nav">
@@ -56,7 +45,7 @@
           </div>
         </div>
         <div class="form__input-file">
-          <input class="visually-hidden" type="file" id="photo2" value="">
+          <input class="visually-hidden" type="file" accept="image/*" id="photo2" name="image_avt[]">
           <label for="photo2">
             <span>+ Добавить</span>
           </label>
@@ -76,11 +65,3 @@
         {% endblock %}
       </ul>
     </nav>
-    {% block main_footer_bottom %}
-    {% include "include/main_footer_bottom.html" %}
-    {% endblock %}
-  </footer>
-
-  </body>
-
-</html>

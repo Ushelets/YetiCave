@@ -6,7 +6,7 @@ $twig->addFunction($MoneyRus);
 $twig->addFunction($TimeToMidnight);
 
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header.php';
-headerPage($add_base[10], $add_base[6][9]);
+headerPage($add_base[10], $titles[9]['titles']);
 
 foreach ($add_base[10] as $value) {
  if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {

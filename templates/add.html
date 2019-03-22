@@ -23,15 +23,12 @@
       <label for="message">Описание</label>
       <div><b>{{add_base[8][2]}}</b></div>
     </div>
-    {% block upload_image %}
-    {# {% include "include/upload_image.html" %} #}
-    {% endblock %}
+    {{AddImage(add_base[9][1],add_base[9][2],add_base[9][0],add_base[9][3])}}
     <div class="form__item form__item--file">
       <label>Изображение</label>
       <div class="preview__img">
         <button class="preview__remove" type="button">x</button>
-        {% block image_name %}
-        {% endblock %}
+        <img src="/img/{{ImageName(add_base[9][1],add_base[9][3])}}" width="113" height="113" alt="Изображение лота">
       </div>
     </div>
 
@@ -46,7 +43,7 @@
       </div>
       <div class="form__item">
         <label for="lot-date">Дата окончания торгов</label>
-        <div><b>{{DateFormat(add_base[8][6])}}г</b></div>
+        <div><b>{{DateFormat(add_base[8][6])}}</b></div>
       </div>
     </div>
   </form>

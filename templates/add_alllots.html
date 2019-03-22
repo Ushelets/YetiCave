@@ -1,7 +1,7 @@
 {% extends "all_lots.html" %}
 
 {% block lots %}
-{% for key, value in add_base.4 if value.category in add_base.7 %}
+{% for key, value in add_base[4] if value.category in add_base.7.keyG %}
 <li class="lots__item lot">
   <div class="lot__image">
     <img src={{value.image}} width="350" height="260">
