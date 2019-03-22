@@ -29,25 +29,26 @@
           <span class="lot-item__cost">{{MoneyRus(val.price)}} р</span>
         </div>
         <div class="lot-item__min-cost">
-          Мин. ставка <span>{{MoneyRus(val.price * 1.1)}} р</span>
+          Мин. ставка <span>{{MoneyRus(val.price + val.lot_step)}} р</span>
         </div>
       </div>
       <form class="lot-item__form" action="" method="post">
         <p class="lot-item__form-item">
           <label for="cost">Ваша ставка</label>
-          <input id="cost" type="number" name="cost" placeholder="{{MoneyRus(val.price * 1.1)}} р">
+          <input id="cost" type="number" name="cost" placeholder="{{MoneyRus(val.price + val.lot_step)}} р">
         </p>
         <button type="submit" class="button">Сделать ставку</button>
       </form>
     </div>
     <div class="history">
-
-      {% for row in add_base.2 if row.id_category == hist_id and val.min_cost != NULL %}
+      {% set history = add_base.5 %}
+      {% for row in add_base.2 if row.id_category == val.id and history.history_time not in NULL %}
       <h3>История ставок (<span>{{row.id_categ_count}}</span>)</h3>
       {% else %}
       <h3>История ставок (<span>{{row.id_categ_count - 1 }}</span>)</h3>
       {% endfor %}
-      {% for value in add_base.5 if value.id_category - 1 == key %}
+
+      {% for value in history if value.id_category == val.id %}
       <table class="history__list">
         <tr class="history__item">
           <td class="history__name">{{value.history_name}}</td>

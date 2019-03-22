@@ -3,7 +3,8 @@
 {% block lot %}
 {% set hist_id = add_base.7.keyG + 1 %}
 
-{% for key, val in add_base.4 if key in add_base.7.keyG %}
+{% for key, val in add_base.4 if key == add_base.7.keyG %}
+
 <h2>{{val.name}}</h2>
 <div class="lot-item__content">
   <div class="lot-item__left">
@@ -31,13 +32,14 @@
       </div>
     </div>
     <div class="history">
-
-      {% for row in add_base.2 if row.id_category == hist_id and val.min_cost != NULL %}
+      {% set history = add_base.5 %}
+      {% for row in add_base.2 if row.id_category == val.id and history.history_time not in NULL %}
       <h3>История ставок (<span>{{row.id_categ_count}}</span>)</h3>
       {% else %}
       <h3>История ставок (<span>{{row.id_categ_count - 1 }}</span>)</h3>
       {% endfor %}
-      {% for value in add_base.5 if value.id_category - 1 == key %}
+
+      {% for value in history if value.id_category == val.id %}
       <table class="history__list">
         <tr class="history__item">
           <td class="history__name">{{value.history_name}}</td>

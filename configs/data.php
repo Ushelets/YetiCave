@@ -271,7 +271,7 @@ $add_image = [
 $link = mysqli_connect('localhost', 'root', '', 'yeticave');
 
 $sql_categories = 'SELECT * FROM categories';
-$sql_goods = 'SELECT * FROM goods';
+$sql_goods = 'SELECT * FROM goods ORDER BY lot_timer DESC';
 $sql_history = 'SELECT * FROM history';
 $sql_titles = 'SELECT * FROM titles';
 $sql_users = 'SELECT * FROM users';
