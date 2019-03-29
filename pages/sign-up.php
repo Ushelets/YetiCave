@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/init.php';
+session_start();
 
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header_all.php';
 headerPage($add_base[10], $titles[7]['titles']);

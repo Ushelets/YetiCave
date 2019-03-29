@@ -3,7 +3,7 @@
 {% block lot %}
 {% set hist_id = add_base.7.keyG + 1 %}
 
-{% for key, val in add_base.4 if key in add_base.7.keyG %}
+{% for key, val in add_base.4 if key == add_base.7.keyG %}
 <h2>{{val.name}}</h2>
 <div class="lot-item__content">
   <div class="lot-item__left">

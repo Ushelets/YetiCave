@@ -1,8 +1,13 @@
 <?php
 
-foreach ($users as $value) {
- if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
-  echo '
+foreach ($users as $key => $value) {
+    if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
+        $key_lgn = $key;
+    }
+};
+
+if ($_SESSION['password'] != null && $_SESSION['login_email'] != null && $key_lgn !== null) {
+    echo '
          <div class="main-footer__bottom container">
   <div class="main-footer__copyright">
     <p>© 2018, YetiCave</p>
@@ -44,11 +49,9 @@ foreach ($users as $value) {
 
 </body>
 
-</html>
-';
-  break;
- } else {
-  echo '
+</html>';
+} else {
+    echo '
           <div class="main-footer__bottom container">
   <div class="main-footer__copyright">
     <p>© 2018, YetiCave</p>
@@ -83,9 +86,5 @@ foreach ($users as $value) {
   </footer>
 
 </body>
-
-</html>
-          ';
-  break;
- }
-}
+</html>';
+};

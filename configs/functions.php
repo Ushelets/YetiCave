@@ -52,3 +52,14 @@ function imgName($img_err, $nam)
         }
     }
 };
+
+function AddImage($image_err, $tmp_name, $uploads_dir, $name)
+{
+    foreach ($image_err as $key => $error) {
+        if ($error == UPLOAD_ERR_OK) {
+            $tmp_name_key = $tmp_name[$key];
+            $name_key = basename($name[$key]);
+            move_uploaded_file($tmp_name_key, "$uploads_dir/$name_key");
+        }
+    }
+}

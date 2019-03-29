@@ -2,9 +2,15 @@
 
 function headerPage($users, $title)
 {
- foreach ($users as $value) {
-  if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
-   echo '
+    foreach ($users as $key => $value) {;
+        if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
+            $key_lgn = $key;
+            $value_lgn = $value;
+        }
+    };
+
+    if ($_SESSION['password'] != null && $_SESSION['login_email'] != null && $key_lgn !== null) {
+        echo '
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -28,22 +34,21 @@ function headerPage($users, $title)
         <input class="main-header__search-btn" type="submit" name="find" value="Найти">
       </form>
       <a class="main-header__add-lot button" href="../pages/add-lot.php">Добавить лот</a>
-      <div class="user-menu_image"> <img src=" ' . $value['image'] . ' " width="80" height="80" alt="Пользователь">
-        <p>' . $value['name'] . '</p>
+      <div class="user-menu_image"> <img src=" ' . $value_lgn['image'] . ' " width="80" height="80" alt="Пользователь">
+        <p>' . $value_lgn['name'] . '</p>
     <a class="text-link" href="../pages/session_close.php">Завершить
     сеанс</a>
       </div>
-</header>
-';
-   break;
-  } else {
-   echo '
+</header>';
+    } else {
+        echo '
   <!DOCTYPE html>
 <html lang="ru">
 
 <head>
   <meta charset="UTF-8">
-  <title>' . $title . '</title>
+  <title>' . $title .
+            '</title>
 <link href="/css/normalize.min.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
 </head>
@@ -64,17 +69,13 @@ function headerPage($users, $title)
       <ul class="user-menu__list">
       <li class="user-menu_item">
           <a class="text-link" href="../pages/login.php">Вход</a>
-        </li>  
+        </li>
       <li class="user-menu_item">
           <a class="text-link" href="../pages/sign-up.php">Регистрация</a>
-        </li>        
+        </li>
       </ul>
     </nav>
       </div>
-</header>
-';
-   break;
-  }
- }
-
-}
+</header>';
+    }
+};

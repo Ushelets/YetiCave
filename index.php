@@ -2,8 +2,18 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/init.php';
 session_start();
-$_SESSION['login_email'] = $_POST['email'];
-$_SESSION['password'] = $_POST['password'];
+
+if ($_SESSION['login_email'] == null && $_SESSION['password'] == null) {
+    $_SESSION['login_email'] = $_POST['email'];
+    $_SESSION['password'] = $_POST['password'];
+}
+
+/* echo '<pre>';
+var_dump($_FILES);
+echo '<pre>'; */
+/* echo '<pre>';
+var_dump($users);
+echo '<pre>'; */
 
 $twig->addFunction($MoneyRus);
 $twig->addFunction($TimeToMidnight);

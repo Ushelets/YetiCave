@@ -244,6 +244,12 @@ $global_var = [
     'cookieHistory' => $_COOKIE['HistoryView']
 ];
 
+$add_usr = [
+    '0' => $_POST['email'],
+    '1' => $_POST['name'],
+    '2' => $_POST['password'],
+];
+
 $add_lot = [
     '0' => $_POST['lot-name'],
     '1' => $_POST['category'],
@@ -292,7 +298,7 @@ $users = mysqli_fetch_all(mysqli_query($link, $sql_users), MYSQLI_ASSOC);
 
 $add_base = [
     '0' => '',
-    '1' => '',
+    '1' => $add_usr,
     '2' => $history_count,
     '3' => $categories,
     '4' => $goods,
