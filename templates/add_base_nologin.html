@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% set categor = add_base.3 %}
+{% set history = add_base.5 %}
 {% block categories %}
 {% for value in categor %}
 <li class="promo__item {{value.css_cod}}">
@@ -28,15 +29,21 @@
       <div class="lot__rate">
         <span class="lot__amount">{{value.lot_amount}}</span>
         <span class="lot__cost">
+          {% set cur_price = CurrentPrice(history , value.id) %}
+          {% if cur_price %}
+          {{MoneyRus(cur_price)}}
+          {% else %}
           {{MoneyRus(value.price)}}
+          {% endif %}
           <b class="rub">р</b>
         </span>
       </div>
       <div class="lot__timer timer">
-        {% if value.lot_timer =='' %}
+        {% set cur_time = DateNow() %}
+        {% if value.lot_timer_finish < cur_time %}
         ПРОДАНО
         {% else %}
-        {{TimeToMidnight()}}
+        {{RestTime(cur_time,value.lot_timer_finish)}}
         {% endif %}</div>
     </div>
   </div>

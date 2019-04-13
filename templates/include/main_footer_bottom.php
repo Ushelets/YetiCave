@@ -1,12 +1,6 @@
 <?php
 
-foreach ($users as $key => $value) {
-    if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
-        $key_lgn = $key;
-    }
-};
-
-if ($_SESSION['password'] != null && $_SESSION['login_email'] != null && $key_lgn !== null) {
+if ($_SESSION['password'] != null && $_SESSION['login_email'] != null && $value_lgn !== null) {
     echo '
          <div class="main-footer__bottom container">
   <div class="main-footer__copyright">

@@ -1,10 +1,11 @@
 <?php
+use Twig\TwigFunction;
 
 require $_SERVER['DOCUMENT_ROOT'] . '/configs/data.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/configs/functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ERROR | E_PARSE);
 
 $loader = new Twig_Loader_Filesystem($_SERVER['DOCUMENT_ROOT'] . '/templates');
 
@@ -54,9 +55,39 @@ $ImageName = new Twig_SimpleFunction('ImageName', function ($image_err, $name) {
 $DateFormat = new Twig_SimpleFunction('DateFormat', function ($date) {
     $date_frt = new DateTime($date);
 
-    return $date_frt->format('d.m.Y');
+    return $date_frt->format('d.m.Y H:i:s');
+});
+
+$DateNow = new Twig_SimpleFunction('DateNow', function () {
+    return date('d.m.Y H:i:s');
 });
 
 $PasswordVerify = new Twig_SimpleFunction('PasswordVerify', function ($session_pass, $saved_pass) {
     return password_verify($session_pass, $saved_pass);
+});
+
+$CurrentPrice = new Twig_SimpleFunction('CurrentPrice', function ($history, $key) {
+    foreach ($history as $value) {
+        if ($value['id_category'] == $key) {
+            $hist_price[] = $value['history_price'];
+        }
+    }
+    return max($hist_price);
+});
+$CurrentAuctionTime = new Twig_SimpleFunction('CurrentAuctionTime', function ($history, $key) {
+    foreach ($history as $value) {
+        if ($value['id_category'] == $key) {
+            $hist_time[] = $value['history_time'];
+        }
+    }
+    $h_time = max($hist_time);
+    return $h_time;
+});
+
+$RestTime = new Twig_SimpleFunction('RestTime', function ($h_time, $time_fin) {
+    $h_time_f = new DateTime($h_time);
+    $good_time_f = new DateTime($time_fin);
+
+    $diff = date_diff($h_time_f, $good_time_f);
+    return $diff->format('%aдн. %Hч %Iмин %Sс');
 });

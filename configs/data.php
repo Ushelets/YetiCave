@@ -278,7 +278,7 @@ $link = mysqli_connect('localhost', 'root', '', 'yeticave');
 
 $sql_categories = 'SELECT * FROM categories';
 $sql_goods = 'SELECT * FROM goods ORDER BY lot_timer DESC';
-$sql_history = 'SELECT * FROM history';
+$sql_history = 'SELECT * FROM history ORDER BY id_category, history_time DESC';
 $sql_titles = 'SELECT * FROM titles';
 $sql_users = 'SELECT * FROM users';
 $sql_history_count = 'SELECT id_category,  COUNT(*) AS id_categ_count FROM history

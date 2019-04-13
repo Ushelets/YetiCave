@@ -5,10 +5,6 @@ session_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header_all.php';
 headerPage($add_base[10], $titles[3]['titles']);
 
-/* echo '<pre>';
-var_dump($_SESSION);
-echo '<pre>'; */
-
 if ($_SESSION['login_email'] != null && $_SESSION['password'] != null) {
     echo "
     <html>

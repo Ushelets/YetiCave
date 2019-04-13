@@ -1,15 +1,14 @@
 <?php
 
-function headerPage($users, $title)
-{
-    foreach ($users as $key => $value) {;
-        if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
-            $key_lgn = $key;
-            $value_lgn = $value;
-        }
-    };
+foreach ($users as $value) {;
+    if (password_verify($_SESSION['password'], $value['password']) && $_SESSION['login_email'] == $value['email']) {
+        $value_lgn = $value;
+    }
+};
 
-    if ($_SESSION['password'] != null && $_SESSION['login_email'] != null && $key_lgn !== null) {
+function headerPage($value_lgn, $title)
+{
+    if ($_SESSION['password'] != null && $_SESSION['login_email'] != null && $value_lgn !== null) {
         echo '
 <!DOCTYPE html>
 <html lang="ru">

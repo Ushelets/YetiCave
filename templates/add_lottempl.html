@@ -2,6 +2,7 @@
 
 {% block lot %}
 {% set hist_id = add_base.7.keyG + 1 %}
+{% set history = add_base.5 %}
 
 {% for key, val in add_base.4 if key == add_base.7.keyG %}
 <h2>{{val.name}}</h2>
@@ -10,6 +11,7 @@
     <div class="lot-item__image">
       <img src={{val.image}} width="730" height="548">
     </div>
+    {% set category = val.category %}
     <p class="lot-item__category">Категория: <span>{{val.category}}</span> </p>
     <p class="lot-item__description">{{val.lot_discription}}</p>
     <br>
@@ -17,48 +19,66 @@
   <div class="lot-item__right">
     <div class="lot-item__state">
       <div class="lot-item__timer timer">
-        {% if val.lot_timer =='' %}
+        {% set cur_time =  DateNow() %}
+        {% if val.lot_timer_finish < cur_time %}
         ПРОДАНО
         {% else %}
-        {{TimeToMidnight()}}
+        осталось:
+        {{ RestTime(cur_time,val.lot_timer_finish) }}
         {% endif %}
       </div>
       <div class="lot-item__cost-state">
         <div class="lot-item__rate">
           <span class="lot-item__amount">Текущая цена</span>
-          <span class="lot-item__cost">{{MoneyRus(val.price)}} р</span>
+          {% set cur_price = CurrentPrice(history , val.id) %}
+
+          {% if cur_price %}
+          <span class="lot-item__cost">{{MoneyRus(cur_price)}} р</span>
         </div>
         <div class="lot-item__min-cost">
-          Мин. ставка <span>{{MoneyRus(val.price + val.lot_step)}} р</span>
+          Мин. ставка <span>{{MoneyRus(cur_price + val.lot_step)}} р</span>
         </div>
       </div>
-      <form class="lot-item__form" action="" method="post">
+      <form class="lot-item__form" action="../pages/lot_auction.php" method="POST" enctype="multipart/form-data">
         <p class="lot-item__form-item">
           <label for="cost">Ваша ставка</label>
-          <input id="cost" type="number" name="cost" placeholder="{{MoneyRus(val.price + val.lot_step)}} р">
+          <input id="cost" type="number" name="cost" placeholder="{{MoneyRus(cur_price + val.lot_step)}} р">
         </p>
-        <button type="submit" class="button">Сделать ставку</button>
-      </form>
+        {% else %}
+        <span class="lot-item__cost">{{MoneyRus(val.price)}} р</span>
     </div>
-    <div class="history">
-      {% set history = add_base.5 %}
-      {% for row in add_base.2 if row.id_category == val.id and history.history_time not in NULL %}
-      <h3>История ставок (<span>{{row.id_categ_count}}</span>)</h3>
-      {% else %}
-      <h3>История ставок (<span>{{row.id_categ_count - 1 }}</span>)</h3>
-      {% endfor %}
-
-      {% for value in history if value.id_category == val.id %}
-      <table class="history__list">
-        <tr class="history__item">
-          <td class="history__name">{{value.history_name}}</td>
-          <td class="history__price">{{MoneyRus(value.history_price)}} р</td>
-          <td class="history__time">{{value.history_time}} </td>
-        </tr>
-      </table>
-      {% endfor %}
+    <div class="lot-item__min-cost">
+      Мин. ставка <span>{{MoneyRus(val.price + val.lot_step)}} р</span>
     </div>
   </div>
+  <form class="lot-item__form" action="../pages/lot_auction.php" method="POST" enctype="multipart/form-data">
+    <p class="lot-item__form-item">
+      <label for="cost">Ваша ставка</label>
+      <input id="cost" type="number" name="cost" placeholder="{{MoneyRus(val.price + val.lot_step)}} р">
+    </p>
+    {% endif %}
+
+    <button type="submit" class="button">Сделать ставку</button>
+  </form>
+</div>
+<div class="history">
+  {% for row in add_base.2 if row.id_category == val.id and history.history_time not in NULL %}
+  <h3>История ставок (<span>{{row.id_categ_count}}</span>)</h3>
+  {% else %}
+  <h3>История ставок (<span>{{0}}</span>)</h3>
+  {% endfor %}
+
+  {% for value in history if value.id_category == val.id %}
+  <table class="history__list">
+    <tr class="history__item">
+      <td class="history__name">{{value.history_name}}</td>
+      <td class="history__price">{{MoneyRus(value.history_price)}} р</td>
+      <td class="history__time">{{DateFormat(value.history_time)}} </td>
+    </tr>
+  </table>
+  {% endfor %}
+</div>
+</div>
 </div>
 {% endfor %}
 {% endblock %}
