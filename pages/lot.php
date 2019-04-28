@@ -3,7 +3,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/init.php';
 
 session_start();
 $key = $_GET['key'];
-
 $_SESSION['keyG'] = $_GET['key'];
 
 setcookie("HistoryView[$key]", $key, time() + 86400);

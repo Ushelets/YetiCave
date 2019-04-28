@@ -12,7 +12,9 @@ $twig->addFunction($MoneyRus);
 $twig->addFunction($PasswordVerify);
 $twig->addFunction($CurrentPrice);
 $twig->addFunction($DateNow);
+$twig->addFunction($DateFormat);
 $twig->addFunction($RestTime);
+$twig->addFunction($ArrChunkAll);
 
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header_all.php';
 headerPage($value_lgn, $titles[0]['titles']);

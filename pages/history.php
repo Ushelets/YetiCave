@@ -3,7 +3,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/init.php';
 session_start();
 
 $twig->addFunction($MoneyRus);
-$twig->addFunction($TimeToMidnight);
+$twig->addFunction($CurrentPrice);
+$twig->addFunction($DateNow);
+$twig->addFunction($DateFormat);
+$twig->addFunction($RestTime);
+$twig->addFunction($ArrChunkId);
 
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/header_all.php';
 headerPage($value_lgn, $titles[9]['titles']);

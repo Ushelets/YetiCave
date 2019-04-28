@@ -12,7 +12,10 @@ $loader = new Twig_Loader_Filesystem($_SERVER['DOCUMENT_ROOT'] . '/templates');
 $twig = new Twig_Environment($loader, [
     'cache' => 'compilation_cache',
     'auto_reload' => true,
+    'debug' => true,
 ]);
+
+$twig->addExtension(new Twig_Extension_Debug());
 
 date_default_timezone_set('Europe/Moscow');
 
@@ -90,4 +93,30 @@ $RestTime = new Twig_SimpleFunction('RestTime', function ($h_time, $time_fin) {
 
     $diff = date_diff($h_time_f, $good_time_f);
     return $diff->format('%aдн. %Hч %Iмин %Sс');
+});
+
+$ArrChunk = new Twig_SimpleFunction('ArrChunk', function ($goods, $ctg, $page_itm) {
+    foreach ($goods as $value) {
+        if ($value['category'] === $ctg) {
+            $arr_ch[] = $value;
+        }
+    };
+    return array_chunk($arr_ch, $page_itm, true);
+});
+$ArrChunkId = new Twig_SimpleFunction('ArrChunkId', function ($goods, $id, $page_itm) {
+    foreach ($id as $val) {
+        foreach ($goods as $value) {
+            if ($value['id'] === $val) {
+                $arr_ch[] = $value;
+            }
+        };
+    };
+    return array_chunk($arr_ch, $page_itm, true);
+});
+
+$ArrChunkAll = new Twig_SimpleFunction('ArrChunkAll', function ($goods, $page_itm) {
+    foreach ($goods as $value) {
+        $arr_ch[] = $value;
+    };
+    return array_chunk($arr_ch, $page_itm, true);
 });

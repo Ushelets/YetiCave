@@ -1,10 +1,10 @@
 {% extends "lot_templ.html" %}
 
 {% block lot %}
-{% set hist_id = add_base.7.keyG + 1 %}
+{% set global = add_base[7] %}
 {% set history = add_base.5 %}
 
-{% for key, val in add_base.4 if key == add_base.7.keyG %}
+{% for key, val in add_base.4 if val.id == global.keyG %}
 <h2>{{val.name}}</h2>
 <div class="lot-item__content">
   <div class="lot-item__left">
@@ -20,7 +20,7 @@
     <div class="lot-item__state">
       <div class="lot-item__timer timer">
         {% set cur_time =  DateNow() %}
-        {% if val.lot_timer_finish < cur_time %}
+        {% if DateFormat(val.lot_timer_finish) < cur_time %}
         ПРОДАНО
         {% else %}
         осталось:

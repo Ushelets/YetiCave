@@ -241,7 +241,10 @@ $add_base = [
 
 $global_var = [
     'keyG' => $_GET['key'],
-    'cookieHistory' => $_COOKIE['HistoryView']
+    'cookieHistory' => $_COOKIE['HistoryView'],
+    'curP' => $_GET['page'],
+    'arrCh' => $_GET['chnk'],
+    'ctg' => $_SESSION['ctg'],
 ];
 
 $add_usr = [
@@ -283,6 +286,8 @@ $sql_titles = 'SELECT * FROM titles';
 $sql_users = 'SELECT * FROM users';
 $sql_history_count = 'SELECT id_category,  COUNT(*) AS id_categ_count FROM history
 GROUP BY id_category';
+$sql_goods_count = 'SELECT category,  COUNT(*) AS ctg_cnt FROM goods
+GROUP BY category';
 
 $categories = mysqli_fetch_all(mysqli_query($link, $sql_categories), MYSQLI_ASSOC);
 
@@ -296,8 +301,10 @@ $titles = mysqli_fetch_all(mysqli_query($link, $sql_titles), MYSQLI_ASSOC);
 
 $users = mysqli_fetch_all(mysqli_query($link, $sql_users), MYSQLI_ASSOC);
 
+$items_count = mysqli_fetch_all(mysqli_query($link, $sql_goods_count), MYSQLI_ASSOC);
+
 $add_base = [
-    '0' => '',
+    '0' => $items_count,
     '1' => $add_usr,
     '2' => $history_count,
     '3' => $categories,

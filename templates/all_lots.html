@@ -9,29 +9,16 @@
   <div class="container">
     <section class="lots">
       <h2>Все лоты в категории <span>
-          "{{add_base.7.keyG}}"
+          "{{add_base.7.ctg}}"
         </span></h2>
       <ul class="lots__list">
         {% block lots %}
         {% endblock %}
-      </ul>
-    </section>
-    <ul class="pagination-list">
-      <li class="pagination-item pagination-item-prev"><a>Назад</a></li>
-      <li class="pagination-item pagination-item-active"><a>1</a></li>
-      <li class="pagination-item"><a href="#">2</a></li>
-      <li class="pagination-item"><a href="#">3</a></li>
-      <li class="pagination-item"><a href="#">4</a></li>
-      <li class="pagination-item pagination-item-next"><a href="#">Вперед</a></li>
-    </ul>
-  </div>
-</main>
-
-<footer class="main-footer">
-  <nav class="nav">
-    <ul class="nav__list container">
-      {% block categories_footer %}
-      {% include "include/categories.html" %}
-      {% endblock %}
-    </ul>
-  </nav>
+        <footer class="main-footer">
+          <nav class="nav">
+            <ul class="nav__list container">
+              {% block categories_footer %}
+              {% include "include/categories.html" %}
+              {% endblock %}
+            </ul>
+          </nav>
