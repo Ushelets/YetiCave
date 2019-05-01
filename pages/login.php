@@ -14,9 +14,6 @@ if ($_SESSION['login_email'] != null && $_SESSION['password'] != null) {
     </html>";
 } else {
 
-    $twig->addFunction($MoneyRus);
-    $twig->addFunction($TimeToMidnight);
-
     echo $twig->render('add_login.html', ['add_base' => $add_base]);
 
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/include/main_footer_bottom.php';

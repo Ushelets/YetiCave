@@ -33,7 +33,6 @@
     </h3>
     <div class="lot__state">
       <div class="lot__rate">
-        <span class="lot__amount">{{value.lot_amount}}</span>
         <span class="lot__cost">
           {% set cur_price = CurrentPrice(history , value.id) %}
           {% if cur_price %}
