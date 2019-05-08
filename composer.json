@@ -1,6 +1,15 @@
 {
-    "require": {
-        "twig/twig": "^2.6",
-        "twig/extensions": "^1.5"
-    }
+  "name": "goldb/html_academy",
+  "description": "yeticave",
+  "type": "project",
+  "license": "MIT",
+  "authors": [{
+    "name": "Ushelets",
+    "email": "Goldberg7777@gmail.com"
+  }],
+  "require": {
+    "twig/twig": "^2.6",
+    "twig/extensions": "^1.5",
+    "swiftmailer/swiftmailer": "^6.2"
+  }
 }

@@ -1,9 +1,7 @@
 <main>
   <nav class="nav">
     <ul class="nav__list container">
-      {% block categories %}
       {% include "include/categories.html" %}
-      {% endblock %}
     </ul>
   </nav>
   <form class="form form--add-lot container">
@@ -52,8 +50,6 @@
 <footer class="main-footer">
   <nav class="nav">
     <ul class="nav__list container">
-      {% block categories_footer %}
       {% include "include/categories.html" %}
-      {% endblock %}
     </ul>
   </nav>

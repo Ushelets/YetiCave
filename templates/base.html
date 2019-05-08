@@ -1,11 +1,18 @@
+{% set history = add_base.5 %}
+{% set page_itm = 3 %}
+{% set arr_chnk = ArrChunkAll(add_base.4, page_itm ) %}
+{% set arr_cnt = arr_chnk|length - 1 %}
+{% set cur_page = add_base.7.arrCh  %}
+{% set pgn = 'base' %}
+{% set href = 'index.php' %}
+
 <main class="container">
   <section class="promo">
     <h2 class="promo__title">Нужен стафф для катки?</h2>
     <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное
       снаряжение.</p>
     <ul class="promo__list">
-      {% block categories %}
-      {% endblock %}
+      {% include "include/categories.html" %}
     </ul>
   </section>
   <section class="lots">
@@ -13,18 +20,15 @@
       <h2>Открытые лоты</h2>
     </div>
     <ul class="lots__list">
-      {% block goods %}
-      {% endblock %}
+      {% include "include/gods_lots_history.html" %}
     </ul>
-  </section>
-</main>
 
+</main>
+{% set pgn = 'base2' %}
 <footer class="main-footer">
   <nav class="nav">
     <ul class="nav__list container">
-      {% block categories_footer %}
       {% include "/include/categories.html" %}
-      {% endblock %}
     </ul>
   </nav>
 </footer>

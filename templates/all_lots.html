@@ -1,24 +1,32 @@
+{% set history = add_base.5 %}
+{% set ctg = add_base.7.ctg %}
+{% set page_itm = 3 %}
+{% set arr_chnk = ArrChunk(add_base.4, ctg, page_itm ) %}
+{% set arr_cnt = arr_chnk|length - 1 %}
+{% set cur_page = add_base.7.arrCh  %}
+{% set pgn = 'alllots' %}
+{% set href = '/pages/all-lots.php' %}
+
+
 <main>
   <nav class="nav">
     <ul class="nav__list container">
-      {% block categories %}
       {% include "include/categories.html" %}
-      {% endblock %}
     </ul>
   </nav>
   <div class="container">
     <section class="lots">
       <h2>Все лоты в категории <span>
-          "{{add_base.7.ctg}}"
+          "{{ctg}}"
         </span></h2>
       <ul class="lots__list">
-        {% block lots %}
-        {% endblock %}
-        <footer class="main-footer">
-          <nav class="nav">
-            <ul class="nav__list container">
-              {% block categories_footer %}
-              {% include "include/categories.html" %}
-              {% endblock %}
-            </ul>
-          </nav>
+        {% include "include/gods_lots_history.html" %}
+  </div>
+
+  <footer class="main-footer">
+    <nav class="nav">
+      <ul class="nav__list container">
+        {% include "include/categories.html" %}
+      </ul>
+    </nav>
+  </footer>

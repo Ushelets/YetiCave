@@ -2,13 +2,20 @@
 </header>
 
 {% set history_view = add_base[6][9] %}
+{% set history = add_base.5 %}
+{% set page_itm = 3 %}
+{% set arr_chnk = ArrChunkId(add_base.4, add_base.7.cookieHistory, page_itm ) %}
+{% set arr_cnt = arr_chnk|length - 1 %}
+{% set cur_page = add_base.7.arrCh  %}
+{% set pgn = 'history' %}
+{% set href = '/pages/history.php' %}
+
 <main>
   <div class="container">
     <section class="lots">
       <h2>{{history_view.titles}}</h2>
       <ul class="lots__list">
-        {% block viewOnCookie %}
-        {% endblock %}
+        {% include "include/gods_lots_history.html" %}
       </ul>
     </section>
 

@@ -5,9 +5,6 @@ session_start();
 
 if ($_GET['search']) {
     $_SESSION['SrchName'] = $_GET['search'];
-    /* setcookie("SrchName", $_GET['search'], time() + 86400);
-    if (!headers_sent()) {
-        header("Refresh: 0"); */
 };
 
 $sql_srch_goods = 'SELECT * FROM goods WHERE MATCH(name, lot_discription) AGAINST(? IN BOOLEAN MODE)';
@@ -26,7 +23,6 @@ if ($srch) {
 }
 
 $twig->addFunction($MoneyRus);
-$twig->addFunction($PasswordVerify);
 $twig->addFunction($CurrentPrice);
 $twig->addFunction($DateNow);
 $twig->addFunction($DateFormat);

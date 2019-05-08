@@ -7,9 +7,7 @@
   <main>
     <nav class="nav">
       <ul class="nav__list container">
-        {% block categories %}
         {% include "include/categories.html" %}
-        {% endblock %}
       </ul>
     </nav>
     <form class="form container" action="../pages/signUp_worked.php" method="POST" enctype="multipart/form-data">
@@ -60,8 +58,6 @@
   <footer class="main-footer">
     <nav class="nav">
       <ul class="nav__list container">
-        {% block categories_footer %}
         {% include "include/categories.html" %}
-        {% endblock %}
       </ul>
     </nav>

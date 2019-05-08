@@ -5,6 +5,8 @@
 {% set arr_chnk = ArrChunkAll(srch, page_itm) %}
 {% set arr_cnt = arr_chnk|length - 1 %}
 {% set cur_page = add_base.7.arrCh  %}
+{% set pgn = 'search' %}
+{% set href = '/pages/search.php' %}
 
 {% block srch %}
 
@@ -12,76 +14,7 @@
   <section class="lots">
     <h2>Результаты поиска по запросу «<span> {{srch_name}} </span>»</h2>
     <ul class="lots__list">
-      {% for key, row in arr_chnk if key == cur_page %}
-      {% for value in row %}
-      <li class="lots__item lot">
-        <div class="lot__image">
-          <img src="{{value.image}}" width="350" height="260">
-        </div>
-        <div class="lot__info">
-          <span class="lot__category">{{value.category}}</span>
-          <h3 class="lot__title"><a class="text-link" href="/pages/lot.php?key={{value.id}}">{{value.name}}</a></h3>
-          <div class="lot__state">
-            <div class="lot__rate">
-              <span class="lot__cost">
-                {% set cur_price = CurrentPrice(history , value.id) %}
-                {% if cur_price %}
-                {{MoneyRus(cur_price)}}
-                {% else %}
-                {{MoneyRus(value.price)}}
-                {% endif %}
-                <b class="rub">р</b>
-              </span>
-            </div>
-            <div class="lot__timer timer">
-              {% set cur_time = DateNow() %}
-              {% if DateFormat(value.lot_timer_finish) < cur_time %}
-              ПРОДАНО
-              {% else %}
-              {{RestTime(cur_time,value.lot_timer_finish)}}
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
-
-  <ul class="pagination-list">
-    {% if key == 0 %}
-    <li class="pagination-item pagination-item-prev">
-      <a href="search.php?chnk={{arr_cnt}}">Назад</a>
-    </li>
-    {% else %}
-    <li class="pagination-item pagination-item-prev">
-      <a href="search.php?chnk={{key - 1}}">Назад</a>
-    </li>
-    {% endif %}
-
-    {% for i in range(0, arr_cnt ) %}
-    {% if i == key %}
-    <li class="pagination-item pagination-item-active">
-      <a href="search.php?chnk={{i}}">{{i + 1}}</a>
-    </li>
-    {% else %}
-    <li class="pagination-item">
-      <a href="search.php?chnk={{i}}">{{i + 1}}</a>
-    </li>
-    {% endif %}
-    {% endfor %}
-
-    {% if key == arr_cnt %}
-    <li class="pagination-item pagination-item-next">
-      <a href="search.php?chnk=0">Вперед </a>
-    </li>
-    {% else %}
-    <li class="pagination-item pagination-item-next">
-      <a href="search.php?chnk={{key + 1}}">Вперед</a>
-    </li>
-    {% endif %}
-  </ul>
+      {% include "include/gods_lots_history.html" %}
 </div>
-{% endfor %}
 
 {% endblock %}
