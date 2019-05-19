@@ -31,8 +31,7 @@
         <div class="lot-item__rate">
           <span class="lot-item__amount">Текущая цена</span>
           {% set cur_price = CurrentPrice(history , val.id) %}
-
-          {% if cur_price %}
+          {% if cur_price and DateFormat(val.lot_timer_finish) > cur_time  %}
           <span class="lot-item__cost">{{MoneyRus(cur_price)}} р</span>
         </div>
         <div class="lot-item__min-cost">
@@ -44,22 +43,27 @@
           <label for="cost">Ваша ставка</label>
           <input id="cost" type="number" name="cost" placeholder="{{MoneyRus(cur_price + val.lot_step)}} р">
         </p>
-        {% else %}
-        <span class="lot-item__cost">{{MoneyRus(val.price)}} р</span>
-    </div>
-    <div class="lot-item__min-cost">
-      Мин. ставка <span>{{MoneyRus(val.price + val.lot_step)}} р</span>
+        <button type="submit" class="button">Сделать ставку</button>
+      </form>
+      {% elseif cur_price and DateFormat(val.lot_timer_finish) <= cur_time %}
+      <span class="lot-item__cost">{{MoneyRus(cur_price)}} р</span>
     </div>
   </div>
-  <form class="lot-item__form" action="../pages/lot_auction.php" method="POST" enctype="multipart/form-data">
-    <p class="lot-item__form-item">
-      <label for="cost">Ваша ставка</label>
-      <input id="cost" type="number" name="cost" placeholder="{{MoneyRus(val.price + val.lot_step)}} р">
-    </p>
-    {% endif %}
-
-    <button type="submit" class="button">Сделать ставку</button>
-  </form>
+  {% else %}
+  <span class="lot-item__cost">{{MoneyRus(val.price)}} р</span>
+</div>
+<div class="lot-item__min-cost">
+  Мин. ставка <span>{{MoneyRus(val.price + val.lot_step)}} р</span>
+</div>
+</div>
+<form class="lot-item__form" action="../pages/lot_auction.php" method="POST" enctype="multipart/form-data">
+  <p class="lot-item__form-item">
+    <label for="cost">Ваша ставка</label>
+    <input id="cost" type="number" name="cost" placeholder="{{MoneyRus(val.price + val.lot_step)}} р">
+  </p>
+  <button type="submit" class="button">Сделать ставку</button>
+</form>
+{% endif %}
 </div>
 <div class="history">
   {% for row in add_base.2 if row.id_category == val.id and history.history_time not in NULL %}
