@@ -31,6 +31,7 @@
         <div class="lot-item__rate">
           <span class="lot-item__amount">Текущая цена</span>
           {% set cur_price = CurrentPrice(history , val.id) %}
+
           {% if cur_price and DateFormat(val.lot_timer_finish) > cur_time  %}
           <span class="lot-item__cost">{{MoneyRus(cur_price)}} р</span>
         </div>
