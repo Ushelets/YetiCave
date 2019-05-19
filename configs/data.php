@@ -6,6 +6,7 @@ $global_var = [
     'curP' => $_GET['page'],
     'arrCh' => $_GET['chnk'],
     'ctg' => $_SESSION['ctg'],
+    'win' => [],
 ];
 
 $add_usr = [
@@ -45,6 +46,7 @@ $sql_goods = 'SELECT * FROM goods ORDER BY lot_timer DESC';
 $sql_history = 'SELECT * FROM history ORDER BY id_category, history_time DESC';
 $sql_titles = 'SELECT * FROM titles';
 $sql_users = 'SELECT * FROM users';
+$sql_owners_goods = 'SELECT * FROM owners_goods';
 $sql_history_count = 'SELECT id_category,  COUNT(*) AS id_categ_count FROM history
 GROUP BY id_category';
 $sql_goods_count = 'SELECT category,  COUNT(*) AS ctg_cnt FROM goods
@@ -62,7 +64,10 @@ $titles = mysqli_fetch_all(mysqli_query($link, $sql_titles), MYSQLI_ASSOC);
 
 $users = mysqli_fetch_all(mysqli_query($link, $sql_users), MYSQLI_ASSOC);
 
+$owners_goods = mysqli_fetch_all(mysqli_query($link, $sql_owners_goods), MYSQLI_ASSOC);
+
 $items_count = mysqli_fetch_all(mysqli_query($link, $sql_goods_count), MYSQLI_ASSOC);
+
 
 $add_base = [
     '0' => $items_count,
@@ -76,4 +81,5 @@ $add_base = [
     '8' => $add_lot,
     '9' => $add_image,
     '10' => $users,
+    '11' => $owners_goods,
 ];

@@ -83,8 +83,7 @@ $CurrentAuctionTime = new Twig_SimpleFunction('CurrentAuctionTime', function ($h
             $hist_time[] = $value['history_time'];
         }
     }
-    $h_time = max($hist_time);
-    return $h_time;
+    return max($hist_time);
 });
 
 $RestTime = new Twig_SimpleFunction('RestTime', function ($h_time, $time_fin) {

@@ -26,7 +26,18 @@
         <span>
           {% set cur_time = DateNow() %}
           {% if DateFormat(value.lot_timer_finish) < cur_time %}
+          {% if cur_price %}
           ПРОДАНО
+          {% for val in add_base.4 if val.id == value.id and val.mail_check != 1 %}
+
+          <head>
+            <meta http-equiv='Refresh' content='0; URL=http://htmlacademy/pages/getwinner.php'>
+          </head>
+
+          {% endfor %}
+          {% else %}
+          ЛОТ ЗАКРЫТ
+          {% endif %}
           {% else %}
           {{RestTime(cur_time,value.lot_timer_finish)}}
           {% endif %}

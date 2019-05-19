@@ -2,7 +2,7 @@
 
 if ($_SESSION['password'] != null && $_SESSION['login_email'] != null && $value_lgn !== null) {
     echo '
-         <div class="main-footer__bottom container">
+<div class="main-footer__bottom container">
   <div class="main-footer__copyright">
     <p>© 2018, YetiCave</p>
     <p>Интернет-аукцион сноубордического и горнолыжного снаряжения</p>
@@ -42,7 +42,6 @@ if ($_SESSION['password'] != null && $_SESSION['login_email'] != null && $value_
 </footer>
 
 </body>
-
 </html>';
 } else {
     echo '
