@@ -1,55 +1,68 @@
 <main>
-  <nav class="nav">
-    <ul class="nav__list container">
-      {% include "include/categories.html" %}
-    </ul>
-  </nav>
-  <form class="form form--add-lot container">
-    <!-- form--invalid -->
-    <h2>Новый лот</h2>
-    <div class="form__container-two">
-      <div class="form__item">
-        <label for="lot-name">Наименование</label>
-        <div><b>{{add_base[8][0]}}</b></div>
-      </div>
-      <div class="form__item">
-        <label for="category">Категория</label>
-        <div><b>{{add_base[8][1]}}</b></div>
-      </div>
-    </div>
-    <div class="form__item form__item--wide">
-      <label for="message">Описание</label>
-      <div><b>{{add_base[8][2]}}</b></div>
-    </div>
-    {{AddImage(add_base[9][1],add_base[9][2],add_base[9][0],add_base[9][3])}}
-    <div class="form__item form__item--file">
-      <label>Изображение</label>
-      <div class="preview__img">
-        <button class="preview__remove" type="button">x</button>
-        <img src="/img/{{ImageName(add_base[9][1],add_base[9][3])}}" width="113" height="113" alt="Изображение лота">
-      </div>
-    </div>
+    <nav class="nav">
+        <ul class="nav__list container">
+            {% include "include/categories.html" %}
+        </ul>
+    </nav>
+    <form
+        class="form form--add-lot container">
+        <!-- form--invalid -->
+        <h2>Новый лот</h2>
+        <div class="form__container-two">
+            <div class="form__item">
+                <label for="lot-name">Наименование</label>
+                <div>
+                    <b>{{add_base[8][0]}}</b>
+                </div>
+            </div>
+            <div class="form__item">
+                <label for="category">Категория</label>
+                <div>
+                    <b>{{add_base[8][1]}}</b>
+                </div>
+            </div>
+        </div>
+        <div class="form__item form__item--wide">
+            <label for="message">Описание</label>
+            <div>
+                <b>{{add_base[8][2]}}</b>
+            </div>
+        </div>
+        {{AddImage(add_base[9][1],add_base[9][2],add_base[9][0],add_base[9][3])}}
+        <div class="form__item form__item--file">
+            <label>Изображение</label>
+            <div class="preview__img">
+                <button class="preview__remove" type="button">x</button>
+                <img alt="Изображение лота" height="113" src="/img/{{ImageName(add_base[9][1],add_base[9][3])}}" width="113">
+            </div>
+        </div>
 
-    <div class="form__container-three">
-      <div class="form__item form__item--small">
-        <label for="lot-rate">Начальная цена</label>
-        <div><b>{{add_base[8][4]}}</b></div>
-      </div>
-      <div class="form__item form__item--small">
-        <label for="lot-step">Шаг ставки</label>
-        <div><b>{{add_base[8][5]}}</b></div>
-      </div>
-      <div class="form__item">
-        <label for="lot-date">Дата окончания торгов</label>
-        <div><b>{{DateFormat(add_base[8][6])}}</b></div>
-      </div>
-    </div>
-  </form>
+        <div class="form__container-three">
+            <div class="form__item form__item--small">
+                <label for="lot-rate">Начальная цена</label>
+                <div>
+                    <b>{{add_base[8][4]}}</b>
+                </div>
+            </div>
+            <div class="form__item form__item--small">
+                <label for="lot-step">Шаг ставки</label>
+                <div>
+                    <b>{{add_base[8][5]}}</b>
+                </div>
+            </div>
+            <div class="form__item">
+                <label for="lot-date">Дата окончания торгов</label>
+                <div>
+                    <b>{{DateFormat(add_base[8][6])}}</b>
+                </div>
+            </div>
+        </div>
+    </form>
 </main>
 
 <footer class="main-footer">
-  <nav class="nav">
-    <ul class="nav__list container">
-      {% include "include/categories.html" %}
-    </ul>
-  </nav>
+    <nav class="nav">
+        <ul class="nav__list container">
+            {% include "include/categories.html" %}
+        </ul>
+    </nav>

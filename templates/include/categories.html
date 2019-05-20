@@ -1,15 +1,15 @@
 {% if pgn == 'base' %}
 
-{% for value in add_base.3 %}
-<li class="promo__item {{value.css_cod}}">
-  <a class="promo__link" href="/pages/all-lots.php?ctg={{value.name}}">{{value.name}}</a>
-</li>
-{% endfor %}
+    {% for value in add_base.3 %}
+        <li class="promo__item {{value.css_cod}}">
+            <a class="promo__link" href="/pages/all-lots.php?ctg={{value.name}}">{{value.name}}</a>
+        </li>
+    {% endfor %}
 
 {% else %}
-{% for value in add_base.3 %}
-<li class="nav__item">
-  <a href="/pages/all-lots.php?ctg={{value.name}}">{{value.name}}</a>
-</li>
-{% endfor %}
+    {% for value in add_base.3 %}
+        <li class="nav__item">
+            <a href="/pages/all-lots.php?ctg={{value.name}}">{{value.name}}</a>
+        </li>
+    {% endfor %}
 {% endif %}

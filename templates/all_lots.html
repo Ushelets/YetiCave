@@ -9,24 +9,26 @@
 
 
 <main>
-  <nav class="nav">
-    <ul class="nav__list container">
-      {% include "include/categories.html" %}
-    </ul>
-  </nav>
-  <div class="container">
-    <section class="lots">
-      <h2>Все лоты в категории <span>
-          "{{ctg}}"
-        </span></h2>
-      <ul class="lots__list">
-        {% include "include/gods_lots_history.html" %}
-  </div>
-
-  <footer class="main-footer">
     <nav class="nav">
-      <ul class="nav__list container">
-        {% include "include/categories.html" %}
-      </ul>
+        <ul class="nav__list container">
+            {% include "include/categories.html" %}
+        </ul>
     </nav>
-  </footer>
+    <div class="container">
+        <section class="lots">
+            <h2>Все лоты в категории
+                <span>
+                    "{{ctg}}"
+                </span>
+            </h2>
+            <ul class="lots__list">
+                {% include "include/gods_lots_history.html" %}
+            </div>
+
+            <footer class="main-footer">
+                <nav class="nav">
+                    <ul class="nav__list container">
+                        {% include "include/categories.html" %}
+                    </ul>
+                </nav>
+            </footer>
